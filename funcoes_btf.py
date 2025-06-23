@@ -5,12 +5,12 @@
 
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor
-from pybricks.parameters import Direction, Port
+from pybricks.parameters import Direction, Port,Axis
 from pybricks.tools import wait
 from pybricks.robotics import DriveBase
 
 
-hub = PrimeHub()
+hub = PrimeHub(top_side=Axis.Z, front_side=Axis.X)
 
 # Motores principais
 left_motor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
@@ -66,35 +66,31 @@ def andar_reto(cms, pot):
 
     parar()
 
-def andar_reto_com_rampa(cms, pot):
+def andar_reto_suave(cm, pot):
     """Anda reto com rampa de aceleração/desaceleração suave."""
     drive_base.stop()
     reset()
-    rampa_tamanho = 7  # cm
+    graus_cms = 19.5
+    rampa_tamanho = 7
     distancia_feita = 0
     wait(150)
     drive_base.use_gyro(True)
 
-    while abs(distancia_feita) < abs(cms):
-        distancia_feita = ((abs(left_motor.angle()) + abs(right_motor.angle())) / 2) / graus_por_cm
+    while not abs(distancia_feita) > abs(cm):
+        distancia_feita = (abs(left_motor.angle()) + abs(right_motor.angle()) / 2) / graus_cms
+        correção = hub.imu.heading() * -1
+        direcao = 1
         limite = 1
+
+        if pot < 0:
+            direcao = -1
         if distancia_feita < rampa_tamanho:
             limite = distancia_feita / rampa_tamanho
-        elif cms - distancia_feita < rampa_tamanho:
-            limite = (cms - distancia_feita) / rampa_tamanho
+        if cm - distancia_feita < rampa_tamanho:
+            limite = (cm - distancia_feita) / rampa_tamanho
 
-        velocidade_base = (pot / 3 + (pot - pot / 3) * exp_aproximada(-3 * (1 - limite))) + 1
-        velocidade = velocidade_base * (-1 if pot < 0 else 1)
-
-        # Correção do giroscópio com inversão se for para trás
-        erro = hub.imu.heading()
-        ganho = 2
-        correcao = erro * ganho * (-1 if pot < 0 else 1)
-
-        # Aplicar nos motores
-        left_motor.run(velocidade - correcao)
-        right_motor.run(velocidade + correcao)
-
+        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), hub.imu.heading()*2)
+        
     parar()
 
 def curva(graus, pot, motores="Par"):
@@ -114,6 +110,6 @@ def curva(graus, pot, motores="Par"):
         elif motores.upper() == "D":
             right_motor.run(pot)
 
-    print("feito")
-
-    parar()
+andar_reto_suave(180, 350)
+drive_base.turn(180)
+andar_reto_suave(180, 350)
