@@ -5,25 +5,27 @@ from pybricks.robotics import DriveBase
 from pybricks.tools import wait, StopWatch, hub_menu
 hub = PrimeHub()
 
-from funcoes_btf import andar_reto_suave, curva, reset, a_motor
+from funcoes_btf import andar_reto_suave, curva, reset, drive_base, a_motor
 
-def Saida3():
-    andar_reto_suave(105,350)
-    curva(-57, 200)
-    andar_reto_suave(10,350)
-    andar_reto_suave(10,-350)
-    curva(70,550)
-    andar_reto_suave(120,-350)
+#Velocidade de Movimento e Curva
 
+velocidade_reta = 620
+aceleracao_reta = 500
+velocidade_curva = 250
+aceleracao_curva = 500
+drive_base.settings(straight_speed=velocidade_reta)
+drive_base.settings(straight_acceleration=aceleracao_reta)
+drive_base.settings(turn_rate=velocidade_reta)
+drive_base.settings(turn_acceleration=aceleracao_curva)
 
-# Make a menu to choose a letter. You can also use numbers.
-selected = hub_menu("1", "2", "3")
+def M2_grama():
+    andar_reto_suave(87,350)
+    drive_base.turn(-25)
+    andar_reto_suave(17, 350)
+    a_motor.run_angle(1500, 600, wait=False)
+    wait(50)
+    andar_reto_suave(20, -350)
+    drive_base.turn(35)
+    andar_reto_suave(95,-350)
 
-# Based on the selection, run a program.
-if selected == "1":
-    import hello_world
-elif selected == "2":
-    import sound
-elif selected == "3":
-    Saida3()
-
+M2_grama()
