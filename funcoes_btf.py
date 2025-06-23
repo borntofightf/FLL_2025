@@ -53,31 +53,25 @@ def exp_aproximada(x):
 
 def andar_reto(cms, pot):
     """Anda reto em linha com velocidade constante."""
+    drive_base.stop()
     reset()
     distancia_feita = 0
-    drive_base.stop()
     wait(150)
     drive_base.use_gyro(True)
 
     while abs(distancia_feita) < abs(cms):
 
         distancia_feita = ((abs(left_motor.angle()) + abs(right_motor.angle())) / 2) / graus_por_cm
-        velocidade = pot * (-1 if pot < 0 else 1)
-        erro = hub.imu.heading()
-        ganho = 2
-        correcao = erro * ganho * (-1 if pot < 0 else 1)
-
-        left_motor.run(velocidade - correcao)
-        right_motor.run(velocidade + correcao)
+        drive_base.drive(pot, 0-hub.imu.heading())
 
     parar()
 
 def andar_reto_com_rampa(cms, pot):
     """Anda reto com rampa de aceleração/desaceleração suave."""
+    drive_base.stop()
     reset()
     rampa_tamanho = 7  # cm
     distancia_feita = 0
-    drive_base.stop()
     wait(150)
     drive_base.use_gyro(True)
 
