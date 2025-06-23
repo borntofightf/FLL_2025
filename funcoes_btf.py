@@ -120,5 +120,6 @@ def curva(graus, pot, motores="Par"):
         elif motores.upper() == "D":
             right_motor.run(pot)
 
-    print("alan")
+
+print("fwiKAS")
     parar()
