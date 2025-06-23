@@ -17,8 +17,7 @@ left_motor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.D)
 
 # Motores adicionais
-a_motor = Motor(Port.A)
-b_motor = Motor(Port.B)
+#a_motor = Motor(Port.A)
 
 # DriveBase configurado
 drive_base = DriveBase(left_motor, right_motor, 62, 105)
@@ -72,35 +71,31 @@ def andar_reto(cms, pot):
 
     parar()
 
-def andar_reto_com_rampa(cms, pot):
+def andar_reto_suave(cm, pot):
     """Anda reto com rampa de aceleração/desaceleração suave."""
     reset()
-    rampa_tamanho = 7  # cm
+    graus_cms = 19.5
+    rampa_tamanho = 7
     distancia_feita = 0
     drive_base.stop()
     wait(150)
     drive_base.use_gyro(True)
 
-    while abs(distancia_feita) < abs(cms):
-        distancia_feita = ((abs(left_motor.angle()) + abs(right_motor.angle())) / 2) / graus_por_cm
+    while not abs(distancia_feita) > abs(cm):
+        distancia_feita = (abs(left_motor.angle()) + abs(right_motor.angle()) / 2) / graus_cms
+        correção = hub.imu.heading() * -1
+        direcao = 1
         limite = 1
+
+        if pot < 0:
+            direcao = -1
         if distancia_feita < rampa_tamanho:
             limite = distancia_feita / rampa_tamanho
-        elif cms - distancia_feita < rampa_tamanho:
-            limite = (cms - distancia_feita) / rampa_tamanho
+        if cm - distancia_feita < rampa_tamanho:
+            limite = (cm - distancia_feita) / rampa_tamanho
 
-        velocidade_base = (pot / 3 + (pot - pot / 3) * exp_aproximada(-3 * (1 - limite))) + 1
-        velocidade = velocidade_base * (-1 if pot < 0 else 1)
-
-        # Correção do giroscópio com inversão se for para trás
-        erro = hub.imu.heading()
-        ganho = 2
-        correcao = erro * ganho * (-1 if pot < 0 else 1)
-
-        # Aplicar nos motores
-        left_motor.run(velocidade - correcao)
-        right_motor.run(velocidade + correcao)
-
+        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), 0- hub.imu.heading())
+        
     parar()
 
 def curva(graus, pot, motores="Par"):
@@ -119,7 +114,3 @@ def curva(graus, pot, motores="Par"):
             left_motor.run(pot)
         elif motores.upper() == "D":
             right_motor.run(pot)
-
-
-print("fwiKAS")
-    parar()
