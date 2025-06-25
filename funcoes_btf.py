@@ -114,3 +114,4 @@ def curva(graus, pot, motores):
         elif motores.upper() == "D":
             right_motor.run(pot)
 
+print('jean fez nada')
