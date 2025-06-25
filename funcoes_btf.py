@@ -5,27 +5,35 @@
 
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor
-from pybricks.parameters import Direction, Port
+from pybricks.parameters import Direction, Port,Axis
 from pybricks.tools import wait
 from pybricks.robotics import DriveBase
 
 
-hub = PrimeHub()
+hub = PrimeHub(top_side=Axis.Z, front_side=Axis.X)
 
 # Motores principais
 left_motor = Motor(Port.E, Direction.COUNTERCLOCKWISE)
 right_motor = Motor(Port.D)
 
 # Motores adicionais
-#a_motor = Motor(Port.A)
+a_motor = Motor(Port.A)
+b_motor = Motor(Port.B)
 
 # DriveBase configurado
-drive_base = DriveBase(left_motor, right_motor, 62, 105)
+drive_base = DriveBase(left_motor, right_motor, 62, 113)
 
 # Limites de controle dos motores
-left_motor.control.limits(1000, 2500, 200)
-right_motor.control.limits(1000, 2500, 200)
+velocidade_reta = 620
+aceleracao_reta = 500
+velocidade_curva = 260
+aceleracao_curva = 500
+drive_base.settings(straight_speed=velocidade_reta)
+drive_base.settings(straight_acceleration=aceleracao_reta)
+drive_base.settings(turn_rate=velocidade_reta)
+drive_base.settings(turn_acceleration=aceleracao_curva)
 graus_por_cm = 19.5
+drive_base.use_gyro(True)
 # ---------------- Funções auxiliares ----------------
 
 def reset():
@@ -52,32 +60,26 @@ def exp_aproximada(x):
 
 def andar_reto(cms, pot):
     """Anda reto em linha com velocidade constante."""
+    drive_base.stop()
     reset()
     distancia_feita = 0
-    drive_base.stop()
     wait(150)
     drive_base.use_gyro(True)
 
     while abs(distancia_feita) < abs(cms):
 
         distancia_feita = ((abs(left_motor.angle()) + abs(right_motor.angle())) / 2) / graus_por_cm
-        velocidade = pot * (-1 if pot < 0 else 1)
-        erro = hub.imu.heading()
-        ganho = 2
-        correcao = erro * ganho * (-1 if pot < 0 else 1)
-
-        left_motor.run(velocidade - correcao)
-        right_motor.run(velocidade + correcao)
+        drive_base.drive(pot, 0-hub.imu.heading())
 
     parar()
 
 def andar_reto_suave(cm, pot):
     """Anda reto com rampa de aceleração/desaceleração suave."""
+    drive_base.stop()
     reset()
     graus_cms = 19.5
     rampa_tamanho = 7
     distancia_feita = 0
-    drive_base.stop()
     wait(150)
     drive_base.use_gyro(True)
 
@@ -94,11 +96,11 @@ def andar_reto_suave(cm, pot):
         if cm - distancia_feita < rampa_tamanho:
             limite = (cm - distancia_feita) / rampa_tamanho
 
-        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), 0- hub.imu.heading())
+        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), hub.imu.heading()*2)
         
     parar()
 
-def curva(graus, pot, motores="Par"):
+def curva(graus, pot, motores):
     """Gira o robô com precisão com base no giroscópio."""
     reset()
     wait(200)
@@ -107,10 +109,8 @@ def curva(graus, pot, motores="Par"):
     pot = abs(pot) * (1 if graus > 0 else -1)
 
     while abs(hub.imu.heading()) < abs(graus):
-        if motores == "Par":
-            left_motor.run(pot)
-            right_motor.run(-pot)
-        elif motores.upper() == "E":
+        if motores.upper() == "E":
             left_motor.run(pot)
         elif motores.upper() == "D":
             right_motor.run(pot)
+
