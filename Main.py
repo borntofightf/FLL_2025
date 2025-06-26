@@ -12,13 +12,13 @@ from funcoes_btf import andar_reto_suave, curva, reset, drive_base, a_motor, b_m
 
 #Velocidade de Movimento e Curva
 
-velocidade_reta = 620
+velo_reta = 620
 aceleracao_reta = 500
-velocidade_curva = 260
+velo_curva = 260
 aceleracao_curva = 500
-drive_base.settings(straight_speed=velocidade_reta)
+drive_base.settings(straight_speed=velo_reta)
 drive_base.settings(straight_acceleration=aceleracao_reta)
-drive_base.settings(turn_rate=velocidade_reta)
+drive_base.settings(turn_rate=velo_curva)
 drive_base.settings(turn_acceleration=aceleracao_curva)
 drive_base.use_gyro(True)
 
@@ -37,8 +37,7 @@ def M1_M2_M3():
     drive_base.turn(-55)
     wait(100)
     andar_reto_suave(13,350)
-    a_motor.run_angle(-1200, 650, wait=False)
-    wait(200)
+    a_motor.run_angle(-1200, 650)
     andar_reto_suave(16,-350)
     wait(100)
     drive_base.turn(67)
