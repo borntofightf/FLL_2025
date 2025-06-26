@@ -21,12 +21,19 @@ a_motor = Motor(Port.A)
 b_motor = Motor(Port.B)
 
 # DriveBase configurado
-drive_base = DriveBase(left_motor, right_motor, 62, 105)
+drive_base = DriveBase(left_motor, right_motor, 62, 113)
 
 # Limites de controle dos motores
-left_motor.control.limits(1000, 2500, 200)
-right_motor.control.limits(1000, 2500, 200)
+velocidade_reta = 620
+aceleracao_reta = 500
+velocidade_curva = 260
+aceleracao_curva = 500
+drive_base.settings(straight_speed=velocidade_reta)
+drive_base.settings(straight_acceleration=aceleracao_reta)
+drive_base.settings(turn_rate=velocidade_reta)
+drive_base.settings(turn_acceleration=aceleracao_curva)
 graus_por_cm = 19.5
+drive_base.use_gyro(True)
 # ---------------- Funções auxiliares ----------------
 
 def reset():
@@ -93,7 +100,7 @@ def andar_reto_suave(cm, pot):
         
     parar()
 
-def curva(graus, pot, motores="Par"):
+def curva(graus, pot, motores):
     """Gira o robô com precisão com base no giroscópio."""
     reset()
     wait(200)
@@ -102,14 +109,7 @@ def curva(graus, pot, motores="Par"):
     pot = abs(pot) * (1 if graus > 0 else -1)
 
     while abs(hub.imu.heading()) < abs(graus):
-        if motores == "Par":
-            left_motor.run(pot)
-            right_motor.run(-pot)
-        elif motores.upper() == "E":
+        if motores.upper() == "E":
             left_motor.run(pot)
         elif motores.upper() == "D":
             right_motor.run(pot)
-
-andar_reto_suave(180, 350)
-drive_base.turn(180)
-andar_reto_suave(180, 350)
