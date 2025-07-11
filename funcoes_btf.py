@@ -22,17 +22,17 @@ b_motor = Motor(Port.B)
 
 # DriveBase configurado
 drive_base = DriveBase(left_motor, right_motor, 62, 113)
-graus_por_cm = 19.5
-# Limites de controle dos motores
-velo_reta = 620
-aceleracao_reta = 500
-velo_curva = 280
-aceleracao_curva = 500
-drive_base.settings(straight_speed=velo_reta)
-drive_base.settings(straight_acceleration=aceleracao_reta)
-drive_base.settings(turn_rate=velo_curva)
-drive_base.settings(turn_acceleration=aceleracao_curva)
 
+# Limites de controle dos motores
+velocidade_reta = 620
+aceleracao_reta = 500
+velocidade_curva = 260
+aceleracao_curva = 500
+drive_base.settings(straight_speed=velocidade_reta)
+drive_base.settings(straight_acceleration=aceleracao_reta)
+drive_base.settings(turn_rate=velocidade_reta)
+drive_base.settings(turn_acceleration=aceleracao_curva)
+graus_por_cm = 19.5
 drive_base.use_gyro(True)
 # ---------------- Funções auxiliares ----------------
 
@@ -83,23 +83,30 @@ def andar_reto_suave(cm, pot):
     drive_base.use_gyro(True)
 
     while not abs(distancia_feita) > abs(cm):
+        leitura_atual = hub.imu.heading()
         distancia_feita = (abs(left_motor.angle()) + abs(right_motor.angle()) / 2) / graus_cms
         correção = hub.imu.heading() * -1
         direcao = 1
         limite = 1
 
-        if pot < 0:
+        if leitura_atual < 0:
             direcao = -1
+
         if distancia_feita < rampa_tamanho:
             limite = distancia_feita / rampa_tamanho
         if cm - distancia_feita < rampa_tamanho:
             limite = (cm - distancia_feita) / rampa_tamanho
 
-        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), hub.imu.heading()*2)
+        if leitura_atual >= -7 or leitura_atual <= 7:
+            while not hub.imu.heading() >= -1 or hub.imu.heading() <= 1
+                left_motor.run(10*direcao)
+                right_motor.run(-10 * direcao)
+        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), hub.imu.heading()*1)
+        print(hub.imu.heading())
         
     parar()
 
-def rotação_om (graus, pot, motores):
+def curva(graus, pot, motor):
     """Gira o robô com precisão com base no giroscópio."""
     reset()
     wait(200)
@@ -108,15 +115,8 @@ def rotação_om (graus, pot, motores):
     pot = abs(pot) * (1 if graus > 0 else -1)
 
     while abs(hub.imu.heading()) < abs(graus):
-        if motores.upper() == "E":
+        if motor.upper() == "E":
             left_motor.run(pot)
-        elif motores.upper() == "D":
+        elif motorupper() == "D":
             right_motor.run(pot)
 
-def rotação(graus,pot):
-    # Limites de controle dos motores
-    velocurva = pot
-    drive_base.settings(turn_rate=velocurva)
-    drive_base.stop()
-    drive_base.use_gyro(True)
-    drive_base.turn(graus)
