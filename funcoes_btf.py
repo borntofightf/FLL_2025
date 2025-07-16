@@ -113,3 +113,12 @@ def curva(graus, pot, motores):
             left_motor.run(pot)
         elif motores.upper() == "D":
             right_motor.run(pot)
+
+def turn(graus, potencia, wait=100):    
+    velocidade_curva = potencia
+    aceleracao_curva = 500
+    drive_base.settings(turn_rate=velocidade_reta)
+    drive_base.settings(turn_acceleration=aceleracao_curva)
+    drive_base.use_gyro(True)
+    drive_base.turn(graus)
+    wait(100)
