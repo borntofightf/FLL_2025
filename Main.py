@@ -24,53 +24,51 @@ def saida_3():
     """Missões M1: Tridente 2.0, M2: Grama, M3: Indianaa Jones"""
     #Inicio da Missão M1: Tridente 2.0
     b_motor.run_target(1000, 0, wait=False)
-    a_motor.run_angle(-1000, 550, wait=False)
-    andar_reto_suave(86.5, 200)
-    drive_base.turn(-96)
-    wait(500)
-    andar_reto(9,100)
-    wait(200)
-    a_motor.run_angle(2000, 1700)
-    wait(200)
-    a_motor.run_angle(-1000, 600)
+    #a_motor.run_angle(-1000, 550, wait=False)
+    andar_reto_suave(97, 150)
+    drive_base.turn(-95)
+    wait(150)
+    andar_reto(13,200)
+    #a_motor.run_angle(2000, 1700
+    a_motor.run_angle(500, 150, wait=False)
     wait(150)
     andar_reto(15,-200)
     drive_base.turn(94)
     wait(100)
     #Fim da Missão M1: Tridente 2.0 e Inicio da Missão M2: Grama
-    a_motor.run_angle(1000, 800, wait=False)
-    andar_reto_suave(14,350)
+    andar_reto_suave(19,350)
     drive_base.turn(-55)
     wait(100)
     andar_reto(13,200)
-    a_motor.run_angle(-1200, 650, wait=False)
-    wait(450)
-    andar_reto_suave(28,-350)
-    wait(100)
-    drive_base.turn(100)
-    b_motor.run_angle(-1000, 120)
-    andar_reto(14,150)
-    b_motor.run_angle(1000, 40)
-    wait(500)
-    andar_reto(11,-150)
-    b_motor.run_angle(-1000,50)
-    drive_base.turn(45)
-    andar_reto(18,300)
-    drive_base.turn(90) 
-    a_motor.run_angle(2000, 1700)
-    wait(200)
-    andar_reto(5,-300)
-    drive_base.turn(-90)
-    andar_reto(35,-300)
-    drive_base.turn(-90) 
-    andar_reto(70,-600)
+    andar_reto(2,-200)
+    b_motor.run_target(1000, 125)
+    andar_reto_suave(14,-250)
+    b_motor.run_target(-250, 50, wait=False)
+    #andar_reto_suave(28,-350)
+    #Fim da Missão M2: Grama
+    drive_base.turn(85)
+    andar_reto(80, -1000)
 
 def saida_4():
     """Missão M12: Vem e Vai"""
+    #Inicio da Missão M12: Vem e Vai
     b_motor.run_target(1000, 0, wait=False)
-    andar_reto_suave(55, 200)
-    b_motor.run_target(-1000, -115)
+    andar_reto_suave(61, 150)
+    b_motor.run_target(-1000, 125)
+    #Fim da Missão M12: Vem e Vai e Volta para a Base
     wait(200)
     andar_reto_suave(65, -350)
 
-saida_3()
+
+# Choose a letter.
+selected = hub_menu("1", "2", "3", "4")
+
+# Based on the selection, run a program.
+if selected == "1":
+    pass
+elif selected == "2":
+    pass
+elif selected == "3":
+    saida_3()
+elif selected == "4":
+    saida_4()

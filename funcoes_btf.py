@@ -96,7 +96,7 @@ def andar_reto_suave(cm, pot):
         if cm - distancia_feita < rampa_tamanho:
             limite = (cm - distancia_feita) / rampa_tamanho
 
-        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), hub.imu.heading()*2)
+        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), hub.imu.heading()*1)
         
     parar()
 
