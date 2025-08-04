@@ -20,6 +20,11 @@ drive_base.settings(turn_rate=velocidade_reta)
 drive_base.settings(turn_acceleration=aceleracao_curva)
 drive_base.use_gyro(True)
 
+def saida_1():
+    andar_reto_suave(125,250)
+    wait(100)
+    andar_reto_suave(140,-250)
+
 def saida_2():
     """Missões M8: Balde, M9: Puxar, M5: Fóssil"""
     #Inicio das Missões M8: Balde e M9: Puxar
@@ -34,7 +39,7 @@ def saida_2():
     andar_reto_suave(20, -250)
     b_motor.run_target(-150, 0)
     andar_reto_suave(5, 250)
-    drive_base.turn(-52)
+    drive_base.turn(-55)
     andar_reto_suave(105, 250)
     drive_base.turn(48)
     andar_reto(15, 200)
@@ -88,7 +93,7 @@ selected = hub_menu("1", "2", "3", "4")
 
 # Based on the selection, run a program.
 if selected == "1":
-    pass
+    saida_1()
 elif selected == "2":
     saida_2()
 elif selected == "3":
