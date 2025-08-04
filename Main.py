@@ -24,11 +24,17 @@ def saida_2():
     """Missões M8: Balde, M9: Puxar, M5: Fóssil"""
     #Inicio das Missões M8: Balde e M9: Puxar
     b_motor.run_target(1000, 0, wait=False)
-    andar_reto_suave(70,150)
-    b_motor.run_target(1000, 150)
-    andar_reto_suave(17, -100)
-    b_motor.run_target(-1000, 0)
-    drive_base.turn(-70)
+    a_motor.run_time(250,400, wait=False)
+    andar_reto_suave(30,150)
+    drive_base.turn(48)
+    andar_reto_suave(34,150)
+    b_motor.run_angle(150, 160, wait=False)
+    a_motor.run_time(-350, 1100)
+    a_motor.run_time(200, 1100)
+    andar_reto_suave(20, -250)
+    b_motor.run_target(-150, 0)
+    andar_reto_suave(5, 250)
+    drive_base.turn(-50)
     #Fim das Missões M8: Balde e M9: Puxar e Inicio da Missão M5: Fóssil 
     
 def saida_3():
