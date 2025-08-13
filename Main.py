@@ -26,8 +26,8 @@ def saida_1():
     andar_reto_suave(140,-250)
 
 def saida_2():
-    """Missões M8: Balde, M9: Puxar, M5: Fóssil"""
-    #Inicio das Missões M8: Balde e M9: Puxar
+    """Missões M9: O que está à venda, M10: Desequilíbrio da Balança, M13: Reconstrução da Estátua"""
+    #Inicio das Missões M9: O que está à venda, M10: Desequilíbrio da Balança
     b_motor.run_target(1000, 0, wait=False)
     a_motor.run_time(250,400, wait=False)
     andar_reto_suave(28,150)
@@ -45,26 +45,22 @@ def saida_2():
     andar_reto(15, 200)
     drive_base.turn(-60)
     andar_reto_suave(100, 250)
-    
-
-    #Fim das Missões M8: Balde e M9: Puxar e Inicio da Missão M5: Fóssil 
+    #Fim das Missões M9: O que está à venda, M10: Desequilíbrio da Balança e Inicio da Missão M5: Reconstrução da Estátua
     
 def saida_3():
-    """Missões M1: Tridente 2.0, M2: Grama, M3: Indianaa Jones"""
-    #Inicio da Missão M1: Tridente 2.0
+    """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
+    #Inicio da Missão M1: Escavação Supercial
     b_motor.run_target(1000, 0, wait=False)
-    #a_motor.run_angle(-1000, 550, wait=False)
     andar_reto_suave(97, 150)
     drive_base.turn(-95)
     wait(150)
     andar_reto(13,200)
-    #a_motor.run_angle(2000, 1700
-    a_motor.run_angle(500, 150, wait=False)
+    a_motor.run_time(500, 400)
     wait(150)
     andar_reto(15,-200)
     drive_base.turn(94)
     wait(100)
-    #Fim da Missão M1: Tridente 2.0 e Inicio da Missão M2: Grama
+    #Fim da Missão M1: Escavação Supercial e Inicio da Missão M2: Revelação do Mapa
     andar_reto_suave(19,350)
     drive_base.turn(-55)
     wait(100)
@@ -73,17 +69,17 @@ def saida_3():
     b_motor.run_target(1000, 125)
     andar_reto_suave(14,-250)
     b_motor.run_target(-250, 50, wait=False)
-    #Fim da Missão M2: Grama
+    #Fim da Missão M2: Revelação do Mapa
     drive_base.turn(85)
     andar_reto(80, -1000)
 
 def saida_4():
-    """Missão M12: Vem e Vai"""
-    #Inicio da Missão M12: Vem e Vai
+    """Missão M12: Operação de Resgate"""
+    #Inicio da Missão M12: Operação de Resgate
     b_motor.run_target(1000, 0, wait=False)
     andar_reto_suave(61, 150)
     b_motor.run_target(-1000, 125)
-    #Fim da Missão M12: Vem e Vai e Volta para a Base
+    #Fim da Missão M12: Operação de Resgate
     wait(200)
     andar_reto_suave(65, -350)
 
