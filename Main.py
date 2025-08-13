@@ -6,7 +6,7 @@ from pybricks.tools import wait, StopWatch, hub_menu
 from pybricks.tools import hub_menu
 hub = PrimeHub()
 
-from funcoes_btf import andar_reto_suave, curva, reset, drive_base, a_motor, b_motor,andar_reto
+from funcoes_btf import andar_reto_suave, curva, reset, drive_base, a_motor, b_motor,andar_reto, sensor_cor, andar_reto_com_sensor,turn
 
 #Velocidade de Movimento e Curva
 
@@ -30,20 +30,23 @@ def saida_2():
     #Inicio das Missões M9: O que está à venda, M10: Desequilíbrio da Balança
     b_motor.run_target(1000, 0, wait=False)
     a_motor.run_time(250,400, wait=False)
-    andar_reto_suave(28,150)
+    andar_reto_suave(21,150)
     drive_base.turn(48)
-    andar_reto_suave(33,150)
+    andar_reto_suave(45,150)
+    drive_base.turn(5)
     b_motor.run_angle(150, 160, wait=False)
-    a_motor.run_time(-350, 1100)
-    a_motor.run_time(200, 1100)
+    a_motor.run_time(-200, 1100)
+    a_motor.run_time(200, 1900)
     andar_reto_suave(20, -250)
     b_motor.run_target(-150, 0)
-    andar_reto_suave(5, 250)
-    drive_base.turn(-55)
-    andar_reto_suave(105, 250)
+    andar_reto(1, 150)
+    a_motor.run_time(200, 900, wait=False)
+    drive_base.turn(-54)
+    andar_reto_suave(68, 150)
     drive_base.turn(48)
-    andar_reto(15, 200)
-    drive_base.turn(-60)
+    andar_reto(25, 200)
+    a_motor.run_time(-100, 1500)
+    drive_base.turn(-67)
     andar_reto_suave(100, 250)
     #Fim das Missões M9: O que está à venda, M10: Desequilíbrio da Balança e Inicio da Missão M5: Reconstrução da Estátua
     
@@ -51,27 +54,27 @@ def saida_3():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
     #Inicio da Missão M1: Escavação Supercial
     b_motor.run_target(1000, 0, wait=False)
-    andar_reto_suave(97, 150)
+    andar_reto_suave(97, 200)
     drive_base.turn(-95)
     wait(150)
     andar_reto(13,200)
-    a_motor.run_time(500, 400)
-    wait(150)
-    andar_reto(15,-200)
+    a_motor.run_time(180, 1600, wait=False)
+    wait(250)
+    andar_reto(15,-100)
     drive_base.turn(94)
     wait(100)
     #Fim da Missão M1: Escavação Supercial e Inicio da Missão M2: Revelação do Mapa
-    andar_reto_suave(19,350)
+    andar_reto_suave(16,350)
     drive_base.turn(-55)
     wait(100)
     andar_reto(13,200)
     andar_reto(2,-200)
-    b_motor.run_target(1000, 125)
+    b_motor.run_target(1000, 133)
     andar_reto_suave(14,-250)
-    b_motor.run_target(-250, 50, wait=False)
+    b_motor.run_target(-150, 50, wait=False)
     #Fim da Missão M2: Revelação do Mapa
-    drive_base.turn(85)
-    andar_reto(80, -1000)
+    turn(75, 400)
+    andar_reto_suave(95, -1000)
 
 def saida_4():
     """Missão M12: Operação de Resgate"""
