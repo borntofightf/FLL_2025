@@ -4,8 +4,8 @@
 # Funções: Andar Reto, Andar Reto com Rampa, Curva
 
 from pybricks.hubs import PrimeHub
-from pybricks.pupdevices import Motor
-from pybricks.parameters import Direction, Port,Axis
+from pybricks.pupdevices import Motor, ColorSensor
+from pybricks.parameters import Direction, Port,Axis, Color
 from pybricks.tools import wait
 from pybricks.robotics import DriveBase
 
@@ -34,6 +34,10 @@ drive_base.settings(turn_rate=velocidade_reta)
 drive_base.settings(turn_acceleration=aceleracao_curva)
 graus_por_cm = 19.5
 drive_base.use_gyro(True)
+
+# Configuração do Sensor de Cor
+sensor_cor = ColorSensor(Port.F)
+
 # ---------------- Funções auxiliares ----------------
 
 def reset():
@@ -83,7 +87,7 @@ def andar_reto_suave(cm, pot):
     wait(150)
     drive_base.use_gyro(True)
 
-    while not abs(distancia_feita) > abs(cm):
+    while not abs(distancia_feita) > abs(cm) - 5 or sensor_cor.color == Color.BLACK:
         distancia_feita = (abs(left_motor.angle()) + abs(right_motor.angle()) / 2) / graus_cms
         correção = hub.imu.heading() * -1
         direcao = 1
@@ -117,7 +121,7 @@ def curva(graus, pot, motores):
 def turn(graus, potencia, wait=100):    
     velocidade_curva = potencia
     aceleracao_curva = 500
-    drive_base.settings(turn_rate=velocidade_reta)
+    drive_base.settings(turn_rate=velocidade_curva)
     drive_base.settings(turn_acceleration=aceleracao_curva)
     drive_base.use_gyro(True)
     drive_base.turn(graus)
