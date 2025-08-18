@@ -56,25 +56,26 @@ def saida_3():
     b_motor.run_target(1000, 0, wait=False)
     andar_reto_suave(97, 200)
     drive_base.turn(-95)
-    wait(150)
-    andar_reto(13,200)
-    a_motor.run_time(180, 1600, wait=False)
+    wait(200)
+    andar_reto(13,150)
+    drive_base.turn(5)
+    a_motor.run_time(180, 1800, wait=False)
     wait(250)
     andar_reto(15,-100)
     drive_base.turn(94)
     wait(100)
     #Fim da Missão M1: Escavação Supercial e Inicio da Missão M2: Revelação do Mapa
-    andar_reto_suave(16,350)
+    andar_reto_suave(14,350)
     drive_base.turn(-55)
     wait(100)
     andar_reto(13,200)
     andar_reto(2,-200)
-    b_motor.run_target(1000, 133)
+    b_motor.run_target(1000, 138)
     andar_reto_suave(14,-250)
     b_motor.run_target(-150, 50, wait=False)
     #Fim da Missão M2: Revelação do Mapa
     turn(75, 400)
-    andar_reto_suave(95, -1000)
+    andar_reto_suave(102, -1000)
 
 def saida_4():
     """Missão M12: Operação de Resgate"""
@@ -86,9 +87,20 @@ def saida_4():
     wait(200)
     andar_reto_suave(65, -350)
 
+def saida_5():
+    
+    andar_reto_suave(135, 200)
+    turn(90, 150)
+    a_motor.run_angle(150, 200)
+    turn(-4, 150)
+    andar_reto_suave(20, 200)
+    a_motor.run_angle(-150, 50)
+    wait(500)
+    andar_reto_suave(20, -200)
+
 
 # Choose a letter.
-selected = hub_menu("1", "2", "3", "4")
+selected = hub_menu("1", "2", "3", "4", "5")
 
 # Based on the selection, run a program.
 if selected == "1":
@@ -99,3 +111,5 @@ elif selected == "3":
     saida_3()
 elif selected == "4":
     saida_4()
+elif selected == "5":
+    saida_5()
