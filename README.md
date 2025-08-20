@@ -17,7 +17,7 @@ O objetivo deste repositório é centralizar as atualizações do código, garan
 
 📑 Documentação das alterações realizadas em cada atualização.
 
-🧩 Suporte para integração com robôs LEGO (EV3 / Spike Prime).
+🧩 Suporte para integração com robôs LEGO (Spike Prime).
 
 
 
@@ -25,7 +25,7 @@ O objetivo deste repositório é centralizar as atualizações do código, garan
 
 🚀 Tecnologias Utilizadas
 
-Python 3.x
+Python
 
 Bibliotecas específicas da FLL (dependendo do kit, ex.: pybricks, ev3dev2, etc.)
 
