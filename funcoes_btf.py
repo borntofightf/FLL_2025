@@ -36,10 +36,6 @@ drive_base.settings(turn_acceleration=aceleracao_curva)
 graus_por_cm = 19.5
 drive_base.use_gyro(True)
 
-# Configuração do Sensor de Cor
-sensor_cor = ColorSensor(Port.F)
-sensor_cor.lights.on
-
 # ---------------- Funções auxiliares ----------------
 
 def reset():
@@ -106,33 +102,6 @@ def andar_reto_suave(cm, pot):
         
     parar()
 
-def andar_reto_com_sensor(cm,pot):
-    """Anda reto com rampa de aceleração/desaceleração suave com sensor de Cor."""
-    drive_base.stop()
-    reset()
-    graus_cms = 19.5
-    rampa_tamanho = 7
-    distancia_feita = 0
-    wait(150)
-    drive_base.use_gyro(True)
-
-    while not sensor_cor.reflection >= 30 and abs(distancia_feita) > abs(cm) -5 or abs(distancia_feita) > abs(cm):
-        distancia_feita = (abs(left_motor.angle()) + abs(right_motor.angle()) / 2) / graus_cms
-        correção = hub.imu.heading() * -1
-        direcao = 1
-        limite = 1
-
-        if pot < 0:
-            direcao = -1
-        if distancia_feita < rampa_tamanho:
-            limite = distancia_feita / rampa_tamanho
-        if cm - distancia_feita < rampa_tamanho:
-            limite = (cm - distancia_feita) / rampa_tamanho
-
-        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), hub.imu.heading()*1)
-        
-    parar()
-
 def curva(graus, pot, motores):
     """Gira o robô com precisão com base no giroscópio."""
     reset()
@@ -155,3 +124,4 @@ def turn(graus, potencia):
     drive_base.use_gyro(True)
     drive_base.turn(graus)
     wait(100)
+

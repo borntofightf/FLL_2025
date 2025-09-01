@@ -53,29 +53,10 @@ def saida_2():
 def saida_3():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
     #Inicio da Missão M1: Escavação Supercial
-    b_motor.run_target(1000, 0, wait=False)
-    andar_reto_suave(97, 200)
-    drive_base.turn(-95)
-    wait(200)
-    andar_reto(13,150)
-    drive_base.turn(5)
-    a_motor.run_time(180, 1800, wait=False)
-    wait(250)
-    andar_reto(15,-100)
-    drive_base.turn(94)
-    wait(100)
-    #Fim da Missão M1: Escavação Supercial e Inicio da Missão M2: Revelação do Mapa
-    andar_reto_suave(14,350)
-    drive_base.turn(-55)
-    wait(100)
-    andar_reto(13,200)
-    andar_reto(2,-200)
-    b_motor.run_target(1000, 138)
-    andar_reto_suave(14,-250)
-    b_motor.run_target(-150, 50, wait=False)
-    #Fim da Missão M2: Revelação do Mapa
-    turn(75, 400)
-    andar_reto_suave(102, -1000)
+    b_motor.run_target(300, -125, wait=False)
+    andar_reto_suave(88, 100)
+    drive_base.turn(-40)
+    andar_reto_suave(30, 100)
 
 def saida_4():
     """Missão M12: Operação de Resgate"""
