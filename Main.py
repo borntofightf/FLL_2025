@@ -30,40 +30,40 @@ def saida_2():
     #Inicio das Missões M9: O que está à venda, M10: Desequilíbrio da Balança
     b_motor.run_target(1000, 0, wait=False)
     a_motor.run_time(250,400, wait=False)
-    andar_reto_suave(21,150)
+    andar_reto_suave(25,150)
     drive_base.turn(48)
-    andar_reto_suave(45,150)
+    andar_reto_suave(46,150)
     drive_base.turn(5)
-    b_motor.run_angle(150, 160, wait=False)
-    a_motor.run_time(-200, 1100)
+    b_motor.run_time(-200, 1200)
+    b_motor.hold()
+    a_motor.run_time(-200, 1150)
     a_motor.run_time(200, 1900)
-    andar_reto_suave(20, -250)
+    andar_reto_suave(18, -250)
     b_motor.run_target(-150, 0)
     andar_reto(1, 150)
-    a_motor.run_time(200, 900, wait=False)
+    a_motor.run_time(200, 1700, wait=False)
     drive_base.turn(-54)
-    andar_reto_suave(68, 150)
-    drive_base.turn(48)
-    andar_reto(25, 200)
-    a_motor.run_time(-100, 1500)
-    drive_base.turn(-67)
-    andar_reto_suave(100, 250)
+    andar_reto_suave(70, 350)
+    drive_base.turn(25)
+    andar_reto(25,200)
+    drive_base.turn(-40)
+    andar_reto_suave(80, 200)
     #Fim das Missões M9: O que está à venda, M10: Desequilíbrio da Balança e Inicio da Missão M5: Reconstrução da Estátua
     
 def saida_3():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
     #Inicio da Missão M1: Escavação Supercial
-    b_motor.run_target(300, -125, wait=False)
+    b_motor.run_target(300, -110, wait=False)
     andar_reto_suave(92, 200)
     drive_base.turn(-45)
     andar_reto_suave(25, 100)
-    b_motor.run_angle(250, 70)
+    b_motor.run_angle(250, 50)
     andar_reto(23,-250)
     drive_base.turn(-18)
     a_motor.run_angle(-400, 500)
-    andar_reto(6, 100)
+    andar_reto(8, 100)
     a_motor.run_angle(400, 550)
-    andar_reto(12, -150)
+    andar_reto(11, -150)
     drive_base.turn(-125)
     andar_reto(60, 300)
 
@@ -71,11 +71,8 @@ def saida_4():
     """Missão M12: Operação de Resgate"""
     #Inicio da Missão M12: Operação de Resgate
     b_motor.run_target(1000, 0, wait=False)
-    andar_reto_suave(61, 150)
-    b_motor.run_target(-1000, 125)
-    #Fim da Missão M12: Operação de Resgate
-    wait(200)
-    andar_reto_suave(65, -350)
+    andar_reto_suave(61, 100)
+    andar_reto(100, 300)
 
 def saida_5():
     
@@ -87,7 +84,6 @@ def saida_5():
     a_motor.run_angle(-150, 50)
     wait(500)
     andar_reto_suave(20, -200)
-
 
 # Choose a letter.
 selected = hub_menu("1", "2", "3", "4", "5")
