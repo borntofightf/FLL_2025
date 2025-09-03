@@ -6,7 +6,7 @@ from pybricks.tools import wait, StopWatch, hub_menu
 from pybricks.tools import hub_menu
 hub = PrimeHub()
 
-from funcoes_btf import andar_reto_suave, curva, reset, drive_base, a_motor, b_motor,andar_reto, sensor_cor, andar_reto_com_sensor,turn
+from funcoes_btf import andar_reto_suave, curva, reset, drive_base, a_motor, b_motor,andar_reto,turn
 
 #Velocidade de Movimento e Curva
 
@@ -54,9 +54,18 @@ def saida_3():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
     #Inicio da Missão M1: Escavação Supercial
     b_motor.run_target(300, -125, wait=False)
-    andar_reto_suave(88, 100)
-    drive_base.turn(-40)
-    andar_reto_suave(30, 100)
+    andar_reto_suave(92, 200)
+    drive_base.turn(-45)
+    andar_reto_suave(25, 100)
+    b_motor.run_angle(250, 70)
+    andar_reto(23,-250)
+    drive_base.turn(-18)
+    a_motor.run_angle(-400, 500)
+    andar_reto(6, 100)
+    a_motor.run_angle(400, 550)
+    andar_reto(12, -150)
+    drive_base.turn(-125)
+    andar_reto(60, 300)
 
 def saida_4():
     """Missão M12: Operação de Resgate"""
