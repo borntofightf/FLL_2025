@@ -30,24 +30,23 @@ def saida_2():
     #Inicio das Missões M9: O que está à venda, M10: Desequilíbrio da Balança
     b_motor.run_target(1000, 0, wait=False)
     a_motor.run_time(250,400, wait=False)
-    andar_reto_suave(25,150)
+    andar_reto_suave(23,150)
     drive_base.turn(48)
     andar_reto_suave(46,150)
     drive_base.turn(5)
     b_motor.run_time(-200, 1200)
     b_motor.hold()
     a_motor.run_time(-200, 1150)
-    a_motor.run_time(200, 1900)
-    andar_reto_suave(18, -250)
+    a_motor.run_time(600, 1900)
+    andar_reto_suave(17, -250)
     b_motor.run_target(-150, 0)
-    andar_reto(1, 150)
     a_motor.run_time(200, 1700, wait=False)
     drive_base.turn(-54)
     andar_reto_suave(70, 350)
     drive_base.turn(25)
     andar_reto(25,200)
-    drive_base.turn(-40)
-    andar_reto_suave(80, 200)
+    drive_base.turn(-37)
+    andar_reto_suave(120, 200)
     #Fim das Missões M9: O que está à venda, M10: Desequilíbrio da Balança e Inicio da Missão M5: Reconstrução da Estátua
     
 def saida_3():
@@ -71,11 +70,11 @@ def saida_4():
     """Missão M12: Operação de Resgate"""
     #Inicio da Missão M12: Operação de Resgate
     b_motor.run_target(1000, 0, wait=False)
-    andar_reto_suave(61, 100)
-    andar_reto(100, 300)
+    andar_reto_suave(69, 200)
+    wait(100)
+    andar_reto(100, -250)
 
 def saida_5():
-    
     andar_reto_suave(135, 200)
     turn(90, 150)
     a_motor.run_angle(150, 200)
