@@ -58,10 +58,9 @@ def saida_4():
     """Missão M11: Pesca de Artefatos"""
     #Inicio da Missão M11: Pesca de Artefatos
     andar_reto_suave(45, 150)
-    drive_base.turn(90)
-    andar_reto_suave(160, 250)
-    drive_base.turn(45)
-    andar_reto_suave(30, 200)
+    drive_base.turn(88)
+    andar_reto_suave(200, 500)
+    
 
 def saida_5():
     """Missões M9: O que está à venda, M10: Desequilíbrio da Balança, M13: Reconstrução da Estátua"""
@@ -83,9 +82,9 @@ def saida_5():
     andar_reto_suave(4, -350)
 
     drive_base.turn(-30)
-    drive_base.turn(34)
+    drive_base.turn(40)
     andar_reto_suave(6, 200)
-    drive_base.turn(-15)
+    drive_base.turn(-20)
     andar_reto_suave(45, -800)
 
 # Choose a letter.
