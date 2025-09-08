@@ -21,70 +21,72 @@ drive_base.settings(turn_acceleration=aceleracao_curva)
 drive_base.use_gyro(True)
 
 def saida_1():
-    andar_reto_suave(125,250)
-    wait(100)
-    andar_reto_suave(140,-250)
-
-def saida_2():
-    """Missões M9: O que está à venda, M10: Desequilíbrio da Balança, M13: Reconstrução da Estátua"""
-    #Inicio das Missões M9: O que está à venda, M10: Desequilíbrio da Balança
-    b_motor.run_target(1000, 0, wait=False)
-    
-    andar_reto_suave(32,100)
-    drive_base.turn(44)
-    a_motor.run_time(200,200, wait=False)
-    andar_reto_suave(32,120)
-    b_motor.run_target(300, -114)
-    b_motor.hold()
-    a_motor.run_time(-300, 1150)
-    a_motor.run_time(600, 1900)
-    drive_base.turn(-8)
-    andar_reto_suave(20, -350)
-    andar_reto_suave(5, 200)
-    b_motor.run_target(-150, 0)
-    drive_base.turn(6)
-    andar_reto_suave(21, 200)
-    drive_base.turn(-40)
-    
-    #Fim das Missões M9: O que está à venda, M10: Desequilíbrio da Balança e Inicio da Missão M5: Reconstrução da Estátua
-    
-def saida_3():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
     #Inicio da Missão M1: Escavação Supercial
     b_motor.run_target(300, -110, wait=False)
-    andar_reto_suave(101, 170)
-    drive_base.turn(-43)
+    andar_reto_suave(100, 170)
+    drive_base.turn(-40)
+    andar_reto(6, -150)
     andar_reto_suave(25, 60)
-    b_motor.run_angle(250, 50)
+    b_motor.run_angle(250, 60)
     andar_reto(23,-250)
     drive_base.turn(-19)
     a_motor.run_angle(-400, 500)
     andar_reto(10, 100)
     a_motor.run_angle(400, 550)
     andar_reto(13, -150)
-    drive_base.turn(-125)
+    drive_base.turn(-115)
     andar_reto(60, 300)
 
-def saida_4():
+def saida_2():
+    """Missões M3: Exploradora de Minas, M4: Extração Segura"""
+    #Inicio das Missões M3: Exploradora de Minas, M4: Extração Segura
+
+def saida_3():
     """Missão M12: Operação de Resgate"""
     #Inicio da Missão M12: Operação de Resgate
-    andar_reto_suave(47, 150)
-    andar_reto(15, 100)
+    andar_reto_suave(45, 150)
+    andar_reto(12, 100)
     wait(100)
     drive_base.turn(2)
-    andar_reto(25, -100)
-    andar_reto(13, 100)
+    andar_reto(23, -100)
+    andar_reto(10, 100)
+    left_motor.run_time(200, 400)
     andar_reto(90, -250)
 
+def saida_4():
+    """Missão M11: Pesca de Artefatos"""
+    #Inicio da Missão M11: Pesca de Artefatos
+    andar_reto_suave(45, 150)
+    drive_base.turn(90)
+    andar_reto_suave(160, 250)
+    drive_base.turn(45)
+    andar_reto_suave(30, 200)
+
 def saida_5():
-    andar_reto_suave(135, 200)
-    turn(90, 150)
-    a_motor.run_angle(150, 200)
-    turn(-4, 150)
-    andar_reto_suave(20, 200)
-    a_motor.run_angle(-150, 50)
-    wait(500)
-    andar_reto_suave(20, -200)
+    """Missões M9: O que está à venda, M10: Desequilíbrio da Balança, M13: Reconstrução da Estátua"""
+    #Inicio das Missões M9: O que está à venda, M10: Desequilíbrio da Balança
+    b_motor.run_target(1000, 0, wait=False)
+    
+    andar_reto_suave(32,100)
+    drive_base.turn(45)
+    a_motor.run_time(200,200, wait=False)
+    andar_reto_suave(33,120)
+    b_motor.run_target(300, -114)
+    b_motor.hold()
+    a_motor.run_time(-300, 1150)
+    a_motor.run_time(600, 1900)
+    drive_base.turn(-8)
+    andar_reto_suave(23, -350)
+    andar_reto_suave(10, 200)
+    b_motor.run_target(-150, 0)
+    andar_reto_suave(4, -350)
+
+    drive_base.turn(-30)
+    drive_base.turn(34)
+    andar_reto_suave(6, 200)
+    drive_base.turn(-15)
+    andar_reto_suave(45, -800)
 
 # Choose a letter.
 selected = hub_menu("1", "2", "3", "4", "5")
