@@ -23,20 +23,15 @@ drive_base.use_gyro(True)
 def saida_1():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
     #Inicio da Missão M1: Escavação Supercial
-    b_motor.run_target(300, -110, wait=False)
-    andar_reto_suave(100, 170)
-    drive_base.turn(-40)
-    andar_reto(6, -150)
-    andar_reto_suave(25, 60)
-    b_motor.run_angle(250, 60)
-    andar_reto(23,-250)
-    drive_base.turn(-19)
-    a_motor.run_angle(-400, 500)
-    andar_reto(10, 100)
-    a_motor.run_angle(400, 550)
-    andar_reto(13, -150)
-    drive_base.turn(-115)
-    andar_reto(60, 300)
+    b_motor.run_target(300, -81, wait=False)
+    andar_reto_suave(103, 150)
+    drive_base.turn(-42)
+    a_motor.run_angle(-400, 200)
+    andar_reto_suave(14, 100)
+    b_motor.run_angle(200, 250, wait=False)
+    andar_reto(20,-300)
+    drive_base.turn(-105)
+    andar_reto(44, 1000)
 
 def saida_2():
     """Missões M3: Exploradora de Minas, M4: Extração Segura"""
@@ -46,7 +41,7 @@ def saida_3():
     """Missão M12: Operação de Resgate"""
     #Inicio da Missão M12: Operação de Resgate
     andar_reto_suave(45, 150)
-    andar_reto(12, 100)
+    andar_reto(14, 100)
     wait(100)
     drive_base.turn(2)
     andar_reto(23, -100)
@@ -57,9 +52,17 @@ def saida_3():
 def saida_4():
     """Missão M11: Pesca de Artefatos"""
     #Inicio da Missão M11: Pesca de Artefatos
-    andar_reto_suave(45, 150)
+    andar_reto_suave(44, 150)
     drive_base.turn(88)
-    andar_reto_suave(200, 500)
+    andar_reto_suave(100, 500)
+    drive_base.turn(88)
+    andar_reto(8,150)
+    a_motor.run_time(800,4000)
+    drive_base.turn(10)
+    andar_reto(11,-150)
+    drive_base.turn(-75)
+    andar_reto_suave(100,500)
+
     
 
 def saida_5():
@@ -73,19 +76,19 @@ def saida_5():
     andar_reto_suave(33,120)
     b_motor.run_target(300, -114)
     b_motor.hold()
-    a_motor.run_time(-300, 1150)
-    a_motor.run_time(600, 1900)
+    a_motor.run_time(-700, 1300)
+    a_motor.run_time(800, 1900)
     drive_base.turn(-8)
     andar_reto_suave(23, -350)
     andar_reto_suave(10, 200)
     b_motor.run_target(-150, 0)
-    andar_reto_suave(4, -350)
+    andar_reto_suave(3, -350)
 
-    drive_base.turn(-30)
-    drive_base.turn(40)
-    andar_reto_suave(6, 200)
+    drive_base.turn(-35)
+    drive_base.turn(37)
+    andar_reto_suave(5, 200)
     drive_base.turn(-20)
-    andar_reto_suave(45, -800)
+    andar_reto_suave(50, -800)
 
 # Choose a letter.
 selected = hub_menu("1", "2", "3", "4", "5")
