@@ -36,6 +36,12 @@ def saida_1():
 def saida_2():
     """Missões M3: Exploradora de Minas, M4: Extração Segura"""
     #Inicio das Missões M3: Exploradora de Minas, M4: Extração Segura
+    andar_reto_suave(140, -150)
+    a_motor.run_time(-1000,1200)
+    andar_reto_suave(12.5, 100)
+    drive_base.turn(-90)
+    andar_reto_suave(20, 50)
+    a_motor.run_time(100,200)
 
 def saida_3():
     """Missão M12: Operação de Resgate"""
@@ -53,15 +59,16 @@ def saida_4():
     """Missão M11: Pesca de Artefatos"""
     #Inicio da Missão M11: Pesca de Artefatos
     andar_reto_suave(44, 150)
-    drive_base.turn(88)
-    andar_reto_suave(100, 500)
-    drive_base.turn(88)
-    andar_reto(8,150)
-    a_motor.run_time(800,4000)
+    drive_base.turn(89)
+    andar_reto_suave(99, 500)
+    drive_base.turn(90)
+    andar_reto(10,150)
+    drive_base.turn(-3)
+    a_motor.run_time(1000,4000)
     drive_base.turn(10)
     andar_reto(11,-150)
     drive_base.turn(-75)
-    andar_reto_suave(100,500)
+    andar_reto(60,1000)
 
     
 
