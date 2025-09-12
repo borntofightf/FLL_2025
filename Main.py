@@ -21,18 +21,26 @@ drive_base.settings(turn_acceleration=aceleracao_curva)
 drive_base.use_gyro(True)
 
 def saida_1():
+    
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
     #Inicio da Missão M1: Escavação Supercial
-    b_motor.run_target(300, -81, wait=False)
-    andar_reto_suave(103, 150)
-    drive_base.turn(-42)
-    a_motor.run_angle(-400, 200)
-    andar_reto_suave(14, 100)
-    b_motor.run_angle(200, 250, wait=False)
-    andar_reto(20,-300)
-    drive_base.turn(-105)
-    andar_reto(44, 1000)
+    b_motor.run_target(1000, -88, wait=False)
+    andar_reto_suave(70,300)
+    drive_base.turn(-39)
+    andar_reto_suave(10,250)
+    b_motor.run_target(150, 0)
+    andar_reto_suave(-13,500)
+    drive_base.turn(-53)
+    
+    andar_reto_suave(12,80)
 
+    a_motor.run_time(-1000,1000)
+    andar_reto_suave(-9,900)
+    drive_base.turn(-70)
+    andar_reto_suave(70,1000)
+
+
+    
 def saida_2():
     """Missões M3: Exploradora de Minas, M4: Extração Segura"""
     #Inicio das Missões M3: Exploradora de Minas, M4: Extração Segura
@@ -97,8 +105,17 @@ def saida_5():
     drive_base.turn(-20)
     andar_reto_suave(50, -800)
 
+def saida_6():
+    andar_reto_suave(72, 300)
+    drive_base.turn(-20)
+    drive_base.turn(70)
+    andar_reto_suave(-13, 300)
+    drive_base.turn(30)
+    andar_reto_suave(37, 300)
+    drive_base.turn(-80)
+
 # Choose a letter.
-selected = hub_menu("1", "2", "3", "4", "5")
+selected = hub_menu("1", "2", "3", "4", "5", "6")
 
 # Based on the selection, run a program.
 if selected == "1":
@@ -111,3 +128,5 @@ elif selected == "4":
     saida_4()
 elif selected == "5":
     saida_5()
+elif selected == "6":
+    saida_6()

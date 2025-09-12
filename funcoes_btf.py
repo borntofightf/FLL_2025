@@ -22,7 +22,7 @@ b_motor = Motor(Port.B)
 
 
 # DriveBase configurado
-drive_base = DriveBase(left_motor, right_motor, 62, 113)
+drive_base = DriveBase(left_motor, right_motor, 60, 110)
 
 # Limites de controle dos motores
 velocidade_reta = 620
@@ -33,7 +33,7 @@ drive_base.settings(straight_speed=velocidade_reta)
 drive_base.settings(straight_acceleration=aceleracao_reta)
 drive_base.settings(turn_rate=velocidade_reta)
 drive_base.settings(turn_acceleration=aceleracao_curva)
-graus_por_cm = 19.5
+graus_por_cm = 18.94
 drive_base.use_gyro(True)
 
 # ---------------- Funções auxiliares ----------------
@@ -68,39 +68,15 @@ def andar_reto(cms, pot):
     wait(150)
     drive_base.use_gyro(True)
 
-    while abs(distancia_feita) < abs(cms):
-
-        distancia_feita = ((abs(left_motor.angle()) + abs(right_motor.angle())) / 2) / graus_por_cm
-        drive_base.drive(pot, 0-hub.imu.heading())
 
     parar()
 
 def andar_reto_suave(cm, pot):
     """Anda reto com rampa de aceleração/desaceleração suave."""
-    drive_base.stop()
-    reset()
-    graus_cms = 19.5
-    rampa_tamanho = 7
-    distancia_feita = 0
-    wait(150)
+    drive_base.settings(straight_speed=pot)
+    drive_base.settings(straight_acceleration=550)
     drive_base.use_gyro(True)
-
-    while not abs(distancia_feita) > abs(cm):
-        distancia_feita = (abs(left_motor.angle()) + abs(right_motor.angle()) / 2) / graus_cms
-        correção = hub.imu.heading() * -1
-        direcao = 1
-        limite = 1
-
-        if pot < 0:
-            direcao = -1
-        if distancia_feita < rampa_tamanho:
-            limite = distancia_feita / rampa_tamanho
-        if cm - distancia_feita < rampa_tamanho:
-            limite = (cm - distancia_feita) / rampa_tamanho
-
-        drive_base.drive(pot/3 + ( pot - pot/3) * (exp_aproximada(-3 * (1 - limite) + 1)), hub.imu.heading()*1)
-        
-    parar()
+    drive_base.straight(cm*10)
 
 def curva(graus, pot, motores):
     """Gira o robô com precisão com base no giroscópio."""
@@ -124,4 +100,3 @@ def turn(graus, potencia):
     drive_base.use_gyro(True)
     drive_base.turn(graus)
     wait(100)
-
