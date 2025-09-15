@@ -76,8 +76,9 @@ def andar_reto_suave(cm, pot):
     drive_base.settings(straight_speed=pot)
     drive_base.settings(straight_acceleration=550)
     drive_base.use_gyro(True)
+    wait(150)
     drive_base.straight(cm*10)
-
+    parar()
 def curva(graus, pot, motores):
     """Gira o robô com precisão com base no giroscópio."""
     reset()
