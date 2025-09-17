@@ -28,7 +28,7 @@ drive_base = DriveBase(left_motor, right_motor, 60, 110)
 
 velocidade_curva = 260
 aceleracao_curva = 550
-drive_base.settings(turn_rate=velocidade_reta)
+drive_base.settings(turn_rate=velocidade_curva)
 drive_base.settings(turn_acceleration=aceleracao_curva)
 graus_por_cm = 18.94
 drive_base.use_gyro(True)
@@ -75,10 +75,10 @@ def andar_reto_suave(cm, pot):
     drive_base.settings(straight_speed=pot)
     drive_base.settings(straight_acceleration=550)
     drive_base.use_gyro(True)
-    parar()
-    wait(150)
     drive_base.straight(cm*10)
+    
     parar()
+    wait(100)
 
 def turn(graus, potencia):    
     velocidade_curva = potencia
