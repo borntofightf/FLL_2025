@@ -25,12 +25,9 @@ b_motor = Motor(Port.B)
 drive_base = DriveBase(left_motor, right_motor, 60, 110)
 
 # Limites de controle dos motores
-velocidade_reta = 620
-aceleracao_reta = 500
+
 velocidade_curva = 260
-aceleracao_curva = 500
-drive_base.settings(straight_speed=velocidade_reta)
-drive_base.settings(straight_acceleration=aceleracao_reta)
+aceleracao_curva = 550
 drive_base.settings(turn_rate=velocidade_reta)
 drive_base.settings(turn_acceleration=aceleracao_curva)
 graus_por_cm = 18.94
@@ -64,10 +61,12 @@ def andar_reto(cms, pot):
     """Anda reto em linha com velocidade constante."""
     drive_base.stop()
     reset()
+    drive_base.settings(straight_acceleration=550,straight_speed=pot)
     distancia_feita = 0
+    parar()
     wait(150)
     drive_base.use_gyro(True)
-
+    drive_base.straight(cms*10)
 
     parar()
 
@@ -76,28 +75,18 @@ def andar_reto_suave(cm, pot):
     drive_base.settings(straight_speed=pot)
     drive_base.settings(straight_acceleration=550)
     drive_base.use_gyro(True)
+    parar()
     wait(150)
     drive_base.straight(cm*10)
     parar()
-def curva(graus, pot, motores):
-    """Gira o robô com precisão com base no giroscópio."""
-    reset()
-    wait(200)
-    drive_base.use_gyro(True)
-
-    pot = abs(pot) * (1 if graus > 0 else -1)
-
-    while abs(hub.imu.heading()) < abs(graus):
-        if motores.upper() == "E":
-            left_motor.run(pot)
-        elif motores.upper() == "D":
-            right_motor.run(pot)
 
 def turn(graus, potencia):    
     velocidade_curva = potencia
-    aceleracao_curva = 500
+    aceleracao_curva = 600
+    parar()
+    wait(100)
     drive_base.settings(turn_rate=velocidade_curva)
-    drive_base.settings(turn_acceleration=aceleracao_curva)
     drive_base.use_gyro(True)
     drive_base.turn(graus)
-    wait(100)
+    parar()
+    
