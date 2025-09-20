@@ -13,25 +13,6 @@ from funcoes_btf import andar_reto_suave, reset, drive_base, a_motor, b_motor,an
 drive_base.use_gyro(True)
 
 def saida_1():
-    """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
-    #b_motor.run_target(1000, -93, wait=False)
-    andar_reto_suave(75.5,300)
-    wait(300)
-    turn(-47, 80)
-    andar_reto_suave(14,150)
-    andar_reto_suave(-5,200)
-    andar_reto_suave(8,200)
-    andar_reto_suave(-25,350)
-    drive_base.turn(-48)
-    wait(100)
-    a_motor.run_time(1000,1000)
-    andar_reto_suave(25,200)
-    a_motor.run_time(-1000,1000)
-    andar_reto_suave(-12,900)
-    drive_base.turn(-70)
-    andar_reto_suave(70,1000)
-    
-def saida_2():
     """Missões M3: Exploradora de Minas, M4: Extração Segura"""
     wait(100)
     andar_reto_suave(-100, 250)
@@ -50,6 +31,25 @@ def saida_2():
     andar_reto_suave(40, 1000)
     drive_base.turn(30) 
     andar_reto_suave(30, 1000)
+    
+def saida_2():
+    """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
+    #b_motor.run_target(1000, -93, wait=False)
+    andar_reto_suave(75.5,300)
+    wait(300)
+    turn(-47, 80)
+    andar_reto_suave(14,150)
+    andar_reto_suave(-5,200)
+    andar_reto_suave(8,200)
+    andar_reto_suave(-25,350)
+    drive_base.turn(-48)
+    wait(100)
+    a_motor.run_time(1000,1000)
+    andar_reto_suave(25,200)
+    a_motor.run_time(-1000,1000)
+    andar_reto_suave(-12,900)
+    drive_base.turn(-70)
+    andar_reto_suave(70,1000)
 
 def saida_3():
     """Missão M12: Operação de Resgate"""
@@ -74,9 +74,6 @@ def saida_4():
     andar_reto_suave(-10,400)
     drive_base.turn(-80)
     andar_reto_suave(100,1000)
-    
-
-    
 
 def saida_5():
     """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
