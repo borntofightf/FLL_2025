@@ -29,12 +29,10 @@ def saida_1():
     andar_reto_suave(-24, 150)
     drive_base.turn(90)
     andar_reto_suave(120, 1000)
-
     
 def saida_2():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
     b_motor.run_target(1000, -163, wait=False)
-
     andar_reto_suave(75,300)
     wait(300)
     turn(-47, 80)
@@ -44,12 +42,12 @@ def saida_2():
     andar_reto_suave(5,200)
     b_motor.run_target(1000, -70, wait=False)
     andar_reto_suave(-21,350)
-    drive_base.turn(-35)
+    turn(-35, 150)
     wait(100)
     andar_reto_suave(16,200)
     a_motor.run_time(1000,1000)
     andar_reto_suave(-12,900)
-    drive_base.turn(-70)
+    turn(-70, 250)
     andar_reto_suave(70,1000)
 
 def saida_3():
@@ -69,11 +67,11 @@ def saida_4():
     andar_reto_suave(66, 300)
     turn(90,100)
     andar_reto_suave(12,300)
-    drive_base.turn(-10)
+    turn(-10, 200)
     a_motor.run_time(1000,4000)
     turn(14,800)
     andar_reto_suave(-10,400)
-    drive_base.turn(-80)
+    turn(-80, 250)
     andar_reto_suave(100,1000)
 
 def saida_5():
@@ -88,7 +86,7 @@ def saida_5():
     b_motor.run_target(300, -55, wait=False)
     left_motor.run_angle(-300, 140)
     andar_reto_suave(-34,300)
-    drive_base.turn(90)
+    turn(90, 250)
     a_motor.run_angle(-500, 400)
     andar_reto_suave(10, 250)
     a_motor.run_angle(500, 650)
@@ -115,29 +113,27 @@ def saida_6():
     b_motor.run_target(300, 0, wait=False)
     andar_reto_suave(-30, 300)
     turn(-20, 300)
-
     andar_reto_suave(-30, 1000)
 
 def saida_7():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
     b_motor.run_target(1000, -85, wait=False)
     andar_reto_suave(58, 300)
-    drive_base.turn(-52)
+    turn(-52, 250)
     andar_reto_suave(43.5, 300)
     b_motor.run_target(200, -20)
     andar_reto_suave(-7, 300)
-    drive_base.turn(-41)
+    turn(-41, 200)
     andar_reto_suave(75, 300)
-    drive_base.turn(-90)
+    turn(-90, 250)
     andar_reto_suave(6, 300)
     a_motor.run_time(1000, 800)
     andar_reto_suave(-2, 300)
     b_motor.run_target(50, -90)
     andar_reto_suave(-15, 300)
-    drive_base.turn(70)
+    turn(70, 250)
     andar_reto_suave(15, 300)
     
-
 # Choose a letter.
 selected = hub_menu("1", "2", "3", "4", "5", "6", "7")
 
