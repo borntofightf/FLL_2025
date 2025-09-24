@@ -32,31 +32,31 @@ def saida_1():
     
 def saida_2():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
-    b_motor.run_target(1000, -120, wait=False)
-    andar_reto_suave(75,300)
+    andar_reto_suave(78,330)
     wait(300)
     turn(-47, 80)
     andar_reto_suave(14,150)
     andar_reto_suave(-4,200)
-    b_motor.run_target(1000, -176, wait=False)
+    b_motor.run_target(1000, -140)
     andar_reto_suave(5,200)
-    b_motor.run_target(1000, -70, wait=False)
-    andar_reto_suave(-21,350)
-    turn(-35, 150)
+    andar_reto_suave(-13,350)
+    b_motor.run_target(1000, -70)
+    andar_reto_suave(-3,200)
+    turn(-48, 150)
     wait(100)
     andar_reto_suave(16,200)
     a_motor.run_time(1000,1000)
-    andar_reto_suave(-12,900)
+    andar_reto_suave(-11,900)
     turn(-70, 250)
     andar_reto_suave(70,1000)
 
 def saida_3():
     """Missão M12: Operação de Resgate"""
     andar_reto_suave(30, 250)
-    andar_reto_suave(13, 150)
+    andar_reto_suave(15, 150)
     turn(3, 150)
     andar_reto_suave(-20, 150)
-    andar_reto_suave(7, 200)
+    andar_reto_suave(8, 200)
     andar_reto_suave(-80, 300)
 
 def saida_4():
@@ -83,21 +83,29 @@ def saida_4():
 
 def saida_5():
     """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
-    b_motor.run_target(300, -150, wait=False)
-    andar_reto_suave(69, 300)
+    andar_reto_suave(42, 300)
+    b_motor.settings(1000)
+    b_motor.run_target(1000, -160)
+    wait(450)
+    b_motor.run_target(1000, 0)
+    b_motor.run_target(1000, -160)
+    wait(450)
+    b_motor.run_target(1000, 0)
+    turn(-30, 250)
+    andar_reto_suave(34, 300)
     b_motor.hold()
     right_motor.run_angle(150, 80)
-    b_motor.run_target(300, -168)
-    right_motor.run_angle(350, 250)
-    andar_reto_suave(-4.5, 200)
+    andar_reto_suave(2, 300)
+    right_motor.run_angle(350, 170)
+    andar_reto_suave(-4, 200)
     b_motor.run_target(300, -55, wait=False)
     left_motor.run_angle(-300, 140)
-    andar_reto_suave(-34,300)
-    turn(90, 250)
+    andar_reto_suave(-36,300)
+    turn(81, 250)
     a_motor.run_angle(-500, 400)
-    andar_reto_suave(10, 250)
+    andar_reto_suave(13, 250)
     a_motor.run_angle(500, 650)
-    andar_reto_suave(-20, 500)
+    andar_reto_suave(-30, 500)
 
 def saida_6():
     """Missões M9: O que está à venda, M10: Desequilíbrio da Balança, M13: Reconstrução da Estátua"""
@@ -146,9 +154,9 @@ selected = hub_menu("1", "2", "3", "4", "5", "6", "7")
 
 # Based on the selection, run a program.
 if selected == "1":
-    saida_1()
-elif selected == "2":
     saida_2()
+elif selected == "2":
+    saida_1()
 elif selected == "3":
     saida_3()
 elif selected == "4":
@@ -156,6 +164,6 @@ elif selected == "4":
 elif selected == "5":
     saida_5()
 elif selected == "6":
-    saida_6()
+    saida_7()
 elif selected == "7":
     saida_7()
