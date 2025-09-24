@@ -16,23 +16,23 @@ def saida_1():
     """Missões M3: Exploradora de Minas, M4: Extração Segura"""
     wait(100)
     andar_reto_suave(-100, 250)
-    a_motor.run_angle(-1000,400)
-    b_motor.run_target(1000, -190, wait=False)
+    
+    b_motor.run_target(1000, -130, wait=False)
     andar_reto_suave(5, 80)
     turn(-90,100)
-    wait(200)
-    andar_reto_suave(10.5, 80)
-    a_motor.run_angle(1000,115)
+    a_motor.run_angle(-1000,780)
+    andar_reto_suave(9, 80)
+    a_motor.run_angle(500,57)
     b_motor.run_target(225, -83)
     wait(1000)
-    b_motor.run_target(300, -135)
-    andar_reto_suave(-24, 150)
-    drive_base.turn(90)
-    andar_reto_suave(120, 1000)
+    b_motor.run_target(300, -100)
+    andar_reto_suave(-19, 150)
+    drive_base.turn(97)
+    andar_reto_suave(100, 1000)
     
 def saida_2():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
-    b_motor.run_target(1000, -163, wait=False)
+    b_motor.run_target(1000, -120, wait=False)
     andar_reto_suave(75,300)
     wait(300)
     turn(-47, 80)
@@ -60,19 +60,26 @@ def saida_3():
     andar_reto_suave(-80, 300)
 
 def saida_4():
-    """Missão M11: Pesca de Artefatos"""
-    andar_reto_suave(30, 200)
-    turn(89,150)
+    """Missões M10: Desequilíbrio da Balança, M11: Pesca de Artefatos"""
+    andar_reto_suave(30, 250)
+    turn(89,200)
     wait(100)
-    andar_reto_suave(66, 300)
+    andar_reto_suave(73, 300)
     turn(90,100)
     andar_reto_suave(12,300)
     turn(-10, 200)
-    a_motor.run_time(1000,4000)
-    turn(14,800)
-    andar_reto_suave(-10,400)
-    turn(-80, 250)
-    andar_reto_suave(100,1000)
+    a_motor.run_time(1000,2500)
+    turn(12 ,800)
+    andar_reto_suave(-7,400)
+    turn(-90, 250)
+    andar_reto_suave(7.5,500)
+    turn(-90, 250)
+    andar_reto_suave(7, 500)
+    b_motor.run_target(400, -110)
+    b_motor.run_target(250, -60)
+    andar_reto_suave(-12, 600)
+    turn(90, 600)
+    andar_reto_suave(70, 1000)
 
 def saida_5():
     """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
