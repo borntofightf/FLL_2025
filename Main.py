@@ -126,6 +126,7 @@ def saida_5():
 def saida_6():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
     b_motor.run_target(1000, -81, wait=False)
+    a_motor.run_angle(-1000, 70,wait=False)
     andar_reto_suave(56, 200)
     turn(-48, 50)
     wait(100)
@@ -137,11 +138,11 @@ def saida_6():
     andar_reto_suave(-5, 200)
     turn(-44, 150)
     
-    andar_reto_suave(6.5, 200)
+    andar_reto_suave(7, 200)
     turn(43, 200)
     andar_reto_suave(-14, 230)
-    a_motor.run_angle(-1000, 300,wait=False)
-    andar_reto_suave(-18, 100)
+    a_motor.run_angle(-1000, 250,wait=False)
+    andar_reto_suave(-10, 100)
     andar_reto_suave(11, 200)
     turn(-45, 200)
     andar_reto_suave(-26, 200)
