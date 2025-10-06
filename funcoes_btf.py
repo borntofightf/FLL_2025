@@ -73,7 +73,7 @@ def andar_reto(cms, pot):
 def andar_reto_suave(cm, pot):
     """Anda reto com rampa de aceleração/desaceleração suave."""
     drive_base.settings(straight_speed=pot)
-    drive_base.settings(straight_acceleration=550)
+    drive_base.settings(straight_acceleration=575)
     drive_base.use_gyro(True)
     drive_base.straight(cm*10)
     
@@ -89,5 +89,3 @@ def turn(graus, potencia):
     drive_base.use_gyro(True)
     drive_base.turn(graus)
     parar()
-    
-
