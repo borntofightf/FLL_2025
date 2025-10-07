@@ -61,7 +61,7 @@ def andar_reto(cms, pot):
     """Anda reto em linha com velocidade constante."""
     drive_base.stop()
     reset()
-    drive_base.settings(straight_acceleration=550,straight_speed=pot)
+    drive_base.settings(straight_acceleration=500,straight_speed=pot)
     distancia_feita = 0
     parar()
     wait(150)
