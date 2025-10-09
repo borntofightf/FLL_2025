@@ -27,7 +27,7 @@ drive_base = DriveBase(left_motor, right_motor, 60, 110)
 # Limites de controle dos motores
 
 velocidade_curva = 260
-aceleracao_curva = 475
+aceleracao_curva = 455
 drive_base.settings(turn_rate=velocidade_curva)
 drive_base.settings(turn_acceleration=aceleracao_curva)
 graus_por_cm = 18.94
@@ -73,7 +73,7 @@ def andar_reto(cms, pot):
 def andar_reto_suave(cm, pot):
     """Anda reto com rampa de aceleração/desaceleração suave."""
     drive_base.settings(straight_speed=pot)
-    drive_base.settings(straight_acceleration=475)
+    drive_base.settings(straight_acceleration=455)
     drive_base.use_gyro(True)
     drive_base.straight(cm*10)
     
