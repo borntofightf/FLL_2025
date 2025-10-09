@@ -138,36 +138,33 @@ def saida_5():
 
 def saida_6():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
-    b_motor.run_target(500, -81, wait=False)
+    
     andar_reto_suave(54, 250)
+    b_motor.run_target(500, -81, wait=False)
     turn(-59, 50)
 
-    andar_reto_suave(36, 300)
-    b_motor.run_target(120, -20)
+    andar_reto_
+    suave(36, 300)
+    b_motor.run_target(120, 0)
     wait(100)
     andar_reto_suave(7, 200)
     wait(100)
     andar_reto_suave(-8, 200)
-    turn(-43, 150)
+    turn(-41, 150)
     andar_reto_suave(16, 200)
-    turn(44, 200)
-    andar_reto_suave(-18, 300)
-    andar_reto_suave(-7, 200)
+    turn(45, 200)
+    andar_reto_suave(-20, 300)
     andar_reto_suave(11.3, 200)
     turn(-56, 200)
-    andar_reto_suave(58, 380)
+    andar_reto_suave(57, 380)
     wait(100)
+    a_motor.run_angle(350, 150)
     turn(-100, 200)
-
-    a_motor.run_angle(-500, 60)
-    
-    wait(200)
-    andar_reto_suave(-5, 200)
-    turn(-4, 200)
     b_motor.control.limits(acceleration=200)
-    b_motor.run_target(1000, -115)
-    turn(69, 200)
-    andar_reto_suave(11.5, 250)
+    b_motor.run_target(1000, -120)
+    andar_reto_suave(3, 380)
+    turn(94, 200)
+    andar_reto_suave(13, 250)
 
 # Choose a letter.
 selected = hub_menu("1", "2", "3", "4", "5", "6","7")
