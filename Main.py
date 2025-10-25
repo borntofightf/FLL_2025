@@ -85,16 +85,16 @@ def saida_4():
     turn(41,40)
     andar_reto_suave(20, 250)
     b_motor.run_target(500, -125)
-    turn(-6,200)
+    turn(-10,200)
     wait(250)
-    turn(17,100)
+    turn(24,100)
     wait(100)
     b_motor.run_target(1000, 0,wait=False)
     wait(300)
     andar_reto_suave(-23, 300)
     turn(43,150)
 
-    andar_reto_suave(76, 300)
+    andar_reto_suave(76.4, 300)
 
     turn(90,100)
     andar_reto_suave(10,250)
@@ -143,8 +143,8 @@ def saida_5():
     turn(-25, 500)
     andar_reto_suave(-5, 200)
     turn(-75, 250)
-    andar_reto_suave(-23,300)
-    a_motor.run_angle(1000, 173)
+    andar_reto_suave(-22,300)
+    a_motor.run_angle(1000, 180)
     andar_reto_suave(-18, 200)
     a_motor.run_angle(-800, 120,wait=False)
     turn(90, 300)
@@ -165,7 +165,7 @@ def saida_6():
     turn(40, 200)
     andar_reto_suave(-15, 150)
     wait(100)
-    andar_reto_suave(13, 200)
+    andar_reto_suave(12, 200)
     turn(-49, 200)
     andar_reto_suave(55, 1000)
     wait(100)
@@ -178,7 +178,7 @@ def saida_6():
     andar_reto_suave(-4,200)
 
     turn(90, 500)
-    andar_reto_suave(14z, 1000)
+    andar_reto_suave(14, 1000)
     turn(-19, 200)
 
 # Choose a letter.
