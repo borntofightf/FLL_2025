@@ -81,7 +81,7 @@ def andar_reto_suave(cm, pot):
     
 def turn(graus, potencia):    
     velocidade_curva = potencia
-    aceleracao_curva = 300
+    aceleracao_curva = 600
     parar()
     wait(150)
     drive_base.settings(turn_rate=velocidade_curva)
@@ -90,7 +90,7 @@ def turn(graus, potencia):
 
 def curva(graus, potencia):    
     velocidade_curva = potencia
-    aceleracao_curva = 300
+    aceleracao_curva = 600
     parar()
     wait(100)
     drive_base.settings(turn_rate=velocidade_curva)
