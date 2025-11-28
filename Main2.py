@@ -20,7 +20,7 @@ def saida_1():
     andar_reto_suave(79,500)
     wait(150)
     turn(-49, 100)
-    wait(100)
+    wait(250)
     andar_reto_suave(9,300)
     andar_reto_suave(-3.5,150)
     b_motor.run_target(1000, -145)
@@ -93,47 +93,58 @@ def saida_4():
     timer.reset()  
     """Missões M10: Desequilíbrio da Balança, M11: Pesca de Artefatos"""
     b_motor.run_target(500, 0, wait=False)
-    andar_reto_suave(27, 200)
+    andar_reto_suave(-2, 1000)
+    andar_reto_suave(28, 700)
     wait(150)
     turn(40,90)
     print(hub.imu.heading())
     wait(150)
-    andar_reto_suave(20, 200)
-    turn(-8, 70)
+    andar_reto_suave(20, 700)
+    turn(-8, 150)
     print(hub.imu.heading())
     b_motor.run_target(500, -130)
-    turn(18,90)
+    turn(20,90)
     andar_reto_suave(2, 50)
-
     print(hub.imu.heading())
     b_motor.run_target(200, 0,wait=False)
     wait(250)
     andar_reto_suave(-20.5, 220)
-    turn(48,100)
-    print(hub.imu.heading())
-    andar_reto_suave(87, 400)
-    curva(-88, 100)
-    andar_reto_suave(6, 100)
-    b_motor.run_target(1000, -125)
-    b_motor.run_target(250, -60,wait=False)
-    andar_reto_suave(-10, 600)
-    turn(31, 300)
-    andar_reto_suave(10, 500)
-    b_motor.run_target(300, -130)
-    andar_reto_suave(-6.5, 600)
-    b_motor.run_target(1000, -60, wait=False)
-    turn(-175, 200)
-    a_motor.run_time(1000,3400,wait=False)
-    turn(-4, 10)
-    andar_reto_suave(-1, 100)
-    wait(3000)
-    turn(54, 500)
+    turn(43,500)
     print((timer.time()) / 1000)
-    andar_reto_suave(-100, 1000)
+    print(hub.imu.heading())
 
-    
 
 def saida_5():
+    """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
+    timer = StopWatch()
+    timer.reset()
+    andar_reto_suave(-2, 1000)
+    andar_reto_suave(25, 250)
+    turn(-92, 300)
+    andar_reto_suave(47.3, 300)
+    turn(-41, 200)
+    a_motor.run_time(1000,3600,wait=False)
+    turn(-4.6, 100)
+    andar_reto_suave(-1, 100)
+    wait(2900)
+    turn(39, 1000)
+    andar_reto_suave(5, 300)
+    turn(75, 200)
+    andar_reto_suave(8.5, 300)
+    b_motor.run_target(500, -120)
+    b_motor.run_target(500, -80, wait=False)
+    andar_reto_suave(-8.5, 300)
+    turn(36, 300)
+    andar_reto_suave(9, 500)
+    b_motor.run_target(400, -135)
+    andar_reto_suave(-6.5, 600)
+    b_motor.run_target(500, 0, wait=False)
+    turn(70, 1000)
+    print((timer.time()) / 1000) 
+    andar_reto_suave(78, 1000)
+    print((timer.time()) / 1000) 
+
+def saida_6():
     """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
     timer = StopWatch()
     timer.reset() 
@@ -168,11 +179,11 @@ def saida_5():
     andar_reto_suave(2,300)
     print((timer.time()) / 1000) 
 
-
-def saida_6():
+def saida_7():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
     timer = StopWatch()
     timer.reset() 
+    andar_reto_suave(-2, 1000)
     b_motor.run_target(120, -50,wait=False)
 
     #a_motor.run_angle(100, 100, wait=False)
@@ -188,14 +199,14 @@ def saida_6():
     andar_reto_suave(-6, 200)
     turn(-45, 85)
     print(hub.imu.heading())
-    andar_reto_suave(17, 200)
+    andar_reto_suave(16.3, 200)
     turn(48, 85)
     andar_reto_suave(-29, 250)
     turn(-23, 600)
     wait(300)
     andar_reto_suave(-3, 200)
     andar_reto_suave(13.5, 200)
-    turn(-48, 100)
+    turn(-47, 100)
     andar_reto_suave(46, 1000)
     a_motor.run_angle(250, 150)
     wait(100)
@@ -205,13 +216,14 @@ def saida_6():
     wait(100)
     b_motor.run_target(250, 0, wait=False)
     andar_reto_suave(-3, 200)
-    turn(58, 200)
+    turn(60, 200)
     andar_reto_suave(18, 1000)
+    turn(17, 400)
     print((timer.time()) / 1000) 
 
 
 # Choose a letter.
-selected = hub_menu("1", "2", "3", "4", "5", "6")
+selected = hub_menu("1", "2", "3", "4", "5", "6", "7")
 
 # Based on the selection, run a program.
 if selected == "1":
@@ -226,4 +238,5 @@ elif selected == "5":
     saida_5()
 elif selected == "6":
     saida_6()
-
+elif selected == "7":
+    saida_7()
