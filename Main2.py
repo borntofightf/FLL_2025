@@ -12,6 +12,7 @@ from funcoes_btf import andar_reto_suave, reset, drive_base, a_motor, b_motor,an
 #Velocidade de Movimento e Curva
 
 drive_base.use_gyro(True)
+timer = StopWatch()
 
 def saida_1():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
@@ -22,7 +23,7 @@ def saida_1():
     turn(-49, 100)
     wait(250)
     andar_reto_suave(9,300)
-    andar_reto_suave(-3.5,150)
+    andar_reto_suave(-4,150)
     b_motor.run_target(1000, -145)
     andar_reto_suave(4.5,700)
     andar_reto_suave(-7,350)
@@ -36,7 +37,7 @@ def saida_1():
     a_motor.run_time(1000,1000,wait=False)
     wait(300)
     andar_reto_suave(-2,600)
-    turn(-85, 250)
+    turn(-88, 250)
     print((timer.time()) / 1000) 
     left_motor.run_time(1000,2000,wait=False)
     right_motor.run_time(700,1800)
@@ -66,7 +67,7 @@ def saida_2():
     b_motor.run_target(200, -100)
     a_motor.run_angle(-1000,200)
     andar_reto_suave(-14, 200)
-    drive_base.turn(84)
+    drive_base.turn(82)
     print((timer.time()) / 1000) 
     a_motor.run_angle(-1000,1000,wait=False)
     left_motor.run_time(1000,2000,wait=False)
@@ -79,12 +80,10 @@ def saida_3():
     b_motor.run_target(1000, -0,wait=False)
     andar_reto_suave(46,500)
     a_motor.control.limits(acceleration=1000)
-    a_motor.run_time(-1100,925)
-    wait(200)
+    a_motor.run_time(-1100,935,wait=False)
+    wait(400)
     andar_reto_suave(-6, 600)
     b_motor.run_target(300, -143)
-    andar_reto_suave(-9, 1000)
-    b_motor.run_target(1000, -135,wait=False)
     print((timer.time()) / 1000) 
     andar_reto_suave(-47, 1000)
 
@@ -108,10 +107,11 @@ def saida_4():
     print(hub.imu.heading())
     b_motor.run_target(170, 0,wait=False)
     wait(250)
-    andar_reto_suave(-20.5, 220)
-    turn(43,500)
+    andar_reto_suave(-2, 220)
+    turn(-24,500)
     print((timer.time()) / 1000)
     print(hub.imu.heading())
+    andar_reto_suave(-10, 220)
 
 
 def saida_5():
@@ -126,11 +126,11 @@ def saida_5():
     wait(150)
     andar_reto_suave(48, 250)
     turn(-41, 200)
-    a_motor.run_time(1000,3600,wait=False)
+    a_motor.run_time(1000,3750,wait=False)
     turn(-4.6, 100)
     andar_reto_suave(-0.4, 100)
 
-    wait(2900)
+    wait(3000)
     turn(39, 1000)
     andar_reto_suave(5, 500)
     turn(77, 200)
@@ -145,8 +145,7 @@ def saida_5():
     b_motor.run_target(500, 0, wait=False)
     turn(70, 1000)
     print((timer.time()) / 1000) 
-    andar_reto_suave(78, 1000)
-    print((timer.time()) / 1000) 
+    andar_reto_suave(70, 1000)
 
 def saida_6():
     """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
@@ -188,7 +187,7 @@ def saida_7():
     timer = StopWatch()
     timer.reset() 
     andar_reto_suave(-2, 1000)
-    b_motor.run_target(120, -50,wait=False)
+    b_motor.run_target(120, -45,wait=False)
 
     #a_motor.run_angle(100, 100, wait=False)
     andar_reto_suave(48, 250)
@@ -217,12 +216,10 @@ def saida_7():
     turn(-70, 200)
     print(hub.imu.heading())
     b_motor.run_target(200, -110)
-    wait(100)
+    wait(150)
     b_motor.run_target(250, 0, wait=False)
-    andar_reto_suave(-3, 200)
-    turn(60, 200)
-    andar_reto_suave(18, 1000)
-    turn(17, 400)
+    andar_reto_suave(-4.5, 1000)
+    turn(28, 1000)
     print((timer.time()) / 1000) 
 
 
