@@ -22,7 +22,7 @@ b_motor = Motor(Port.B)
 
 
 # DriveBase configurado
-drive_base = DriveBase(left_motor, right_motor, 60, 109)
+drive_base = DriveBase(left_motor, right_motor, 60, 115)
 
 # Limites de controle dos motores
 
