@@ -22,7 +22,7 @@ b_motor = Motor(Port.B)
 
 
 # DriveBase configurado
-drive_base = DriveBase(left_motor, right_motor, 60, 110)
+drive_base = DriveBase(left_motor, right_motor, 60, 115)
 
 # Limites de controle dos motores
 
@@ -79,13 +79,22 @@ def andar_reto_suave(cm, pot):
     drive_base.use_gyro(True)
     drive_base.straight(cm*10)
     
-    
-
 def turn(graus, potencia):    
     velocidade_curva = potencia
-    aceleracao_curva = 300
+    aceleracao_curva = 600
+    parar()
+    wait(150)
+    drive_base.settings(turn_rate=velocidade_curva)
+    drive_base.use_gyro(True)
+    drive_base.turn(graus)
+
+def curva(graus, potencia):    
+    velocidade_curva = potencia
+    aceleracao_curva = 600
     parar()
     wait(100)
     drive_base.settings(turn_rate=velocidade_curva)
     drive_base.use_gyro(True)
-    drive_base.turn(graus)
+    drive_base.arc(20, angle=graus)
+
+
