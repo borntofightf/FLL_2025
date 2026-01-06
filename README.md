@@ -11,14 +11,14 @@ Este repositório centraliza toda a programação do robô, garantindo **organiz
 
 ---
 
-## 📸 Visão Geral
+## 📸 Membros
 
 <p align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/LEGO_SPIKE_Prime_Set.jpg" width="400"/>
+  <img src="images/equipe.jpeg"/>
 </p>
 
 <p align="center">
-  <i>LEGO Spike Prime — Plataforma utilizada pela equipe</i>
+  <i>Equipe de 2024</i>
 </p>
 
 ---
