@@ -95,6 +95,8 @@ def curva(graus, potencia):
     wait(100)
     drive_base.settings(turn_rate=velocidade_curva)
     drive_base.use_gyro(True)
-    drive_base.arc(20, angle=graus)
+    drive_base.arc(40, angle=graus)
+    
+
 
 
