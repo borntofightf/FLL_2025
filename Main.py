@@ -218,31 +218,27 @@ def saida_7():
     andar_reto_suave(48, 200)
     
     wait(200)
-    turn(-49.5, 60)
-    print(hub.imu.heading())
-    b_motor.run_target(100, -77)
+    turn(-49, 60)
+
+    b_motor.run_target(100, -80,wait=False)
     wait(150)
     andar_reto(39, 225)
-    b_motor.run_target(80, -50,wait=False)
-    andar_reto(5.5, 150)
+    b_motor.run_target(80, -60,wait=False)
+    andar_reto(6.5, 150)
     andar_reto(-10, 150)
-    turn(-45.5, 200)
-    print(hub.imu.heading())
-    
-    andar_reto(20.5, 200)
-    
-    
+    turn(-46.5, 200)
+    andar_reto(20.8, 200)
     turn(44, 100)
     andar_reto_suave(-19, 300)
     turn(-20, 600)
     andar_reto_suave(-3.5, 200)
-    print(hub.imu.heading())
+  
     andar_reto_suave(13, 500)
     turn(-49.5, 400)
     andar_reto(48.5, 500)
   
     turn(-72, 350)
-    b_motor.run_target(150, -105)
+    b_motor.run_target(150, -110)
     wait(170)
     andar_reto(-2, 500)
     b_motor.run_target(250, 0, wait=False)
@@ -250,7 +246,7 @@ def saida_7():
     andar_reto(8, 800)
 
     
-    andar_reto(-10.5, 500)
+    andar_reto(-9.5, 500)
     
     turn(70, 350)
     andar_reto(-35, 500)
