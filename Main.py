@@ -69,7 +69,7 @@ def saida_2():
     a_motor.run_angle(900,95,wait=False)
     b_motor.run_target(100, -120,wait=False)
     wait(200)
-    andar_reto(6.5,50)
+    andar_reto(5.8,50)
     
 
 
@@ -117,7 +117,7 @@ def saida_4():
     left_motor.run_angle(200,53)
     andar_reto_suave(2, 500)
     print(hub.imu.heading())
-    b_motor.run_target(600, -60)
+    b_motor.run_target(500, -60)
     
     left_motor.run_angle(-200,30)
     andar_reto_suave(-10, 1000)
@@ -133,7 +133,7 @@ def saida_5():
   
     andar_reto_suave(27.5, 300)
 
-    turn(-91, 150)
+    turn(-92, 150)
     andar_reto(63.5, 300)
     print(hub.imu.heading())
     turn(-89, 200)
@@ -144,7 +144,7 @@ def saida_5():
     
     andar_reto_suave(-7, 500)
     
-    turn(-86, 200)
+    turn(-86.5, 200)
     andar_reto_suave(11.5, 250)
     turn(-88, 200)
     andar_reto_suave(6.3, 300)
@@ -185,9 +185,9 @@ def saida_6():
     b_motor.run_target(100, 0)
     turn(-19, 200)
     andar_reto(33, 200)
-    turn(56, 200)
+    turn(60.5, 200)
     print(hub.imu.heading())
-    andar_reto_suave(3.5, 300)
+    andar_reto(3.8, 300)
     turn(-38, 350)
     andar_reto_suave(2, 200)
     turn(-23, 900)
@@ -196,13 +196,15 @@ def saida_6():
     andar_reto_suave(-22,300)
     a_motor.run_angle(1000, 320)
     andar_reto_suave(-10,900)
-    a_motor.run_angle(-400, 280,wait=False)
+    a_motor.run_angle(-400, 190,wait=False)
     andar_reto_suave(5,300)
     wait(600)
-    andar_reto_suave(-15,800)
-    a_motor.run_angle(-500, 300,wait=False)
-    wait(200)
-    turn(100, 500)
+    b_motor.run_target(100, -5)
+    andar_reto_suave(-14.5,800)
+    a_motor.run_angle(-500, 100,wait=False)
+   
+    turn(100, 600)
+  
     print((timer.time()) / 1000) 
 
 def saida_7():
@@ -218,31 +220,34 @@ def saida_7():
     wait(200)
     turn(-49.5, 60)
     print(hub.imu.heading())
-    b_motor.run_target(50, -80, wait=False)
+    b_motor.run_target(100, -77)
     wait(150)
     andar_reto(39, 225)
-    b_motor.run_target(80, -60,wait=False)
+    b_motor.run_target(80, -50,wait=False)
     andar_reto(5.5, 150)
     andar_reto(-10, 150)
     turn(-45.5, 200)
+    print(hub.imu.heading())
     
-    andar_reto(20.8, 200)
-    turn(44,100)
-    andar_reto_suave(-18, 300)
+    andar_reto(20.5, 200)
+    
+    
+    turn(44, 100)
+    andar_reto_suave(-19, 300)
     turn(-20, 600)
     andar_reto_suave(-3.5, 200)
-
+    print(hub.imu.heading())
     andar_reto_suave(13, 500)
-    turn(-49, 400)
+    turn(-49.5, 400)
     andar_reto(48.5, 500)
   
     turn(-72, 350)
-    b_motor.run_target(150, -125)
+    b_motor.run_target(150, -105)
     wait(170)
     andar_reto(-2, 500)
     b_motor.run_target(250, 0, wait=False)
     a_motor.run_angle(8000,360,wait=False)
-    andar_reto(10, 800)
+    andar_reto(8, 800)
 
     
     andar_reto(-10.5, 500)
