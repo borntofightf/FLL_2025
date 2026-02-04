@@ -67,7 +67,7 @@ def saida_2():
     turn(-90,110)
     print(hub.imu.heading())
     a_motor.run_angle(1000,500)
-    andar_reto(4,50)
+    andar_reto(4.4,50)
 
     a_motor.run_angle(900,95,wait=False)
     b_motor.run_target(100, -120,wait=False)
@@ -76,7 +76,7 @@ def saida_2():
     
 
     
-    a_motor.run_angle(-1000,225,wait=False)
+    a_motor.run_angle(-1000,216,wait=False)
     b_motor.run_target(125, -50,wait=False)
 
     print(hub.imu.heading())
@@ -135,20 +135,22 @@ def saida_5():
     b_motor.run_target(100, -0, wait=False)
   
     drive_base.settings(turn_rate=200)
-    drive_base.curve(260,-90.5)
-    andar_reto(37, 300)
+    drive_base.curve(255,-91)
+    andar_reto(37.5, 300)
     print(hub.imu.heading())
     turn(-89, 200)
-    andar_reto(10, 200)
+    andar_reto(8.5, 200)
     right_motor.run_time(200,260)
     a_motor.run_time(1000,2400)
-    right_motor.run_time(-200,270)
+    right_motor.run_time(-200,250)
     
     andar_reto_suave(-7, 500)
     
-    turn(-86.5, 200)
-    andar_reto_suave(11.5, 250)
-    turn(-88, 200)
+    turn(-89, 200)
+    andar_reto(11.5, 500)
+    turn(-87.5, 200)
+
+
     andar_reto_suave(6.3, 300)
     b_motor.run_target(1000, -120)
     b_motor.run_target(500, -80, wait=False)
@@ -165,8 +167,7 @@ def saida_5():
 
 def saida_6():
     """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
-    timer = StopWatch()
-    timer.reset() 
+
     b_motor.run_target(800, -45, wait=False)
     a_motor.run_time(-1000, 250, wait=False)
 
@@ -184,16 +185,16 @@ def saida_6():
     wait(300)
     b_motor.run_target(200, -30)
     b_motor.run_target(950, -140)
-    b_motor.run_target(100, 0)
-    turn(-19, 250)
-    andar_reto(33, 220)
-    turn(60.5, 250)
-    print(hub.imu.heading())
-    andar_reto(3.8, 300)
+    b_motor.run_target(100, -10)
+    turn(-19, 220)
+    andar_reto(33, 200)
+    turn(60.8, 250)
+
+    andar_reto(4.2, 300)
     turn(-38, 350)
     andar_reto_suave(2, 200)
     turn(-23, 900)
-    andar_reto_suave(-5.3, 200)
+    andar_reto_suave(-5.5, 200)
     turn(-75, 250)
     andar_reto_suave(-22,300)
     a_motor.run_angle(1000, 320)
@@ -207,7 +208,7 @@ def saida_6():
    
     turn(100, 600)
   
-    print((timer.time()) / 1000) 
+
 
 def saida_7():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
@@ -221,18 +222,18 @@ def saida_7():
     b_motor.run_target(100, -80,wait=False)
     andar_reto_suave(33.5, 250)
     b_motor.run_target(100, -59)
-    andar_reto(4, 150)
-    andar_reto(-11.5, 150)
+    andar_reto(3.5, 150)
+    andar_reto(-11, 150)
     turn(-45, 200)
-    andar_reto(19.8, 200)
+    andar_reto(19.5, 200)
     turn(44, 100)
     andar_reto_suave(-19, 300)
-    turn(-20, 600)
-    andar_reto_suave(-3.5, 200)
-    print(hub.imu.heading())
-    andar_reto_suave(14, 500)
-    turn(-46, 400)
-    andar_reto(48.5, 500)
+    turn(-15, 600)
+    andar_reto_suave(-4, 200)
+
+    andar_reto_suave(13.7, 500)
+    turn(-47, 400)
+    andar_reto(48.2, 500)
   
     turn(-70, 350)
     b_motor.run_target(65, -99)
@@ -240,10 +241,10 @@ def saida_7():
     andar_reto(-2, 500)
     b_motor.run_target(150, -59, wait=False)
     a_motor.run_angle(8000,360,wait=False)
-    andar_reto(8, 800)
+    andar_reto(9, 800)
 
     
-    andar_reto(-8.2, 500)
+    andar_reto(-9, 500)
     
     turn(70, 350)
     andar_reto(-35, 500)
