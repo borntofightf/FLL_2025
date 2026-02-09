@@ -61,17 +61,17 @@ def saida_2():
     wait(150)
     
     b_motor.run_target(100, -140,wait=False)
-    andar_reto(4.5, 100)
+    andar_reto(4.4, 100)
     
 
-    turn(-90.4,110)
+    turn(-91,110)
     a_motor.run_angle(1000,500)
     andar_reto(4.8,50)
 
-    a_motor.run_angle(900,95,wait=False)
+    a_motor.run_angle(900,100,wait=False)
     b_motor.run_target(100, -120,wait=False)
     wait(200)
-    andar_reto(4.4,50)
+    andar_reto(4.3,50)
     
 
     
@@ -145,9 +145,9 @@ def saida_5():
     
     andar_reto_suave(-7, 500)
     
-    turn(-89.5, 200)
+    turn(-90, 200)
     andar_reto(11.5, 500)
-    turn(-88, 200)
+    turn(-88.5, 200)
 
 
     andar_reto_suave(6.3, 300)
@@ -159,7 +159,7 @@ def saida_5():
     b_motor.run_target(400, -135)
     andar_reto_suave(-8, 600)
     b_motor.run_target(500, 0, wait=False)
-    turn(60, 1000)
+    turn(60, 300)
     print((timer.time()) / 1000)
     andar_reto_suave(78, 800)
    
@@ -183,21 +183,21 @@ def saida_6():
     b_motor.run_target(800, -140)
     wait(300)
     b_motor.run_target(200, -30)
-    b_motor.run_target(950, -140)
+    b_motor.run_target(900, -140)
     b_motor.run_target(100, -10)
-    turn(-19, 220)
-    andar_reto(33, 200)
-    turn(60.8, 250)
-
-    andar_reto(4.2, 300)
-    turn(-38, 350)
-    andar_reto_suave(2, 200)
+    
+    andar_reto(31, 240)
+    
+    turn(-19.5, 400)
+    andar_reto(7.5, 180)
     turn(-23, 900)
-    andar_reto_suave(-5.5, 200)
-    turn(-76, 250)
-    andar_reto_suave(-22,300)
+    andar_reto_suave(-7.5, 200)
+    turn(-54.5, 250)
+
+
+    andar_reto_suave(-16,300)
     a_motor.run_angle(1000, 320)
-    andar_reto_suave(-10,900)
+    andar_reto_suave(-12,900)
     a_motor.run_angle(-400, 190,wait=False)
     andar_reto_suave(5,300)
     wait(600)
