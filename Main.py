@@ -20,39 +20,39 @@ def saida_1():
     timer.reset()      
     
     andar_reto_suave(79,500)
-    wait(200)
+    wait(400)
     turn(-46.8, 100)
     print(hub.imu.heading())
-    wait(250)
+    wait(400)
     andar_reto_suave(9,300)
     andar_reto_suave(-3.5,150)
     b_motor.run_target(1000, -143)
     andar_reto_suave(4,700)
     andar_reto_suave(-6.5,350)
     b_motor.run_target(1000, -110)
-    b_motor.run_target(300, -100,wait=False)
+    b_motor.run_target(100, -80,wait=False)
     andar_reto_suave(-10,150)
-    b_motor.run_target(300, -95,wait=False)
+    b_motor.run_target(300, -90,wait=False)
+   
     print("S1")
     turn(-46, 200)
     print(hub.imu.heading())
-    andar_reto_suave(12,400)
+    andar_reto_suave(12.5,400)
     a_motor.run_time(1000,1000,wait=False)
     wait(300)
-    andar_reto_suave(-4.5,600)
+    andar_reto_suave(-5,600)
     turn(-80, 250)
+    
+    drive_base.settings(turn_rate=1000)
+    drive_base.curve(1050,30)
     print((timer.time()) / 1000) 
-    left_motor.run_time(1000,2000,wait=False)
-    right_motor.run_time(700,1800)
 
 
 def saida_2():
-    timer = StopWatch()
-    timer.reset()     
+
     """Missões M3: Exploradora de Minas, M4: Extração Segura"""
-    print("segunda saida")
+  
     andar_reto_suave(1, 200)
-    print(hub.imu.heading())
     a_motor.run_angle(1000,1500,wait=False)
     andar_reto_suave(-93, 800)
     
@@ -64,28 +64,27 @@ def saida_2():
     andar_reto(4.5, 100)
     
 
-    turn(-90,110)
-    print(hub.imu.heading())
+    turn(-90.4,110)
     a_motor.run_angle(1000,500)
-    andar_reto(4.4,50)
+    andar_reto(4.8,50)
 
     a_motor.run_angle(900,95,wait=False)
     b_motor.run_target(100, -120,wait=False)
     wait(200)
-    andar_reto(5,50)
+    andar_reto(4.4,50)
     
 
     
-    a_motor.run_angle(-1000,216,wait=False)
-    b_motor.run_target(125, -50,wait=False)
+    a_motor.run_angle(-1000,225,wait=False)
+    b_motor.run_target(150, -50,wait=False)
 
-    print(hub.imu.heading())
+   
     wait(800)
-    b_motor.run_target(150, -110)
+    b_motor.run_target(500, -110)
     andar_reto_suave(-11, 200)
     a_motor.run_angle(-1000,1000,wait=False)
     drive_base.turn(84)
-    print((timer.time()) / 1000) 
+    
     left_motor.run_time(1000,2200,wait=False)
     right_motor.run_time(925,2200)
 
@@ -136,7 +135,7 @@ def saida_5():
   
     drive_base.settings(turn_rate=200)
     drive_base.curve(255,-91)
-    andar_reto(37.5, 300)
+    andar_reto(37.2, 300)
     print(hub.imu.heading())
     turn(-89, 200)
     andar_reto(8.5, 200)
@@ -146,9 +145,9 @@ def saida_5():
     
     andar_reto_suave(-7, 500)
     
-    turn(-89, 200)
+    turn(-89.5, 200)
     andar_reto(11.5, 500)
-    turn(-87.5, 200)
+    turn(-88, 200)
 
 
     andar_reto_suave(6.3, 300)
@@ -195,7 +194,7 @@ def saida_6():
     andar_reto_suave(2, 200)
     turn(-23, 900)
     andar_reto_suave(-5.5, 200)
-    turn(-75, 250)
+    turn(-76, 250)
     andar_reto_suave(-22,300)
     a_motor.run_angle(1000, 320)
     andar_reto_suave(-10,900)
@@ -212,43 +211,43 @@ def saida_6():
 
 def saida_7():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
-    timer = StopWatch()
-    timer.reset() 
-    andar_reto_suave(-0.5, 1000)
-    
-    andar_reto_suave(35, 225)
-    drive_base.settings(turn_rate=225)
-    drive_base.curve(250,-46)
-    b_motor.run_target(100, -80,wait=False)
-    andar_reto_suave(33.5, 250)
-    b_motor.run_target(100, -59)
-    andar_reto(3.5, 150)
-    andar_reto(-11, 150)
-    turn(-45, 200)
-    andar_reto(19.5, 200)
-    turn(44, 100)
-    andar_reto_suave(-19, 300)
-    turn(-15, 600)
-    andar_reto_suave(-4, 200)
-
-    andar_reto_suave(13.7, 500)
-    turn(-47, 400)
-    andar_reto(48.2, 500)
   
-    turn(-70, 350)
-    b_motor.run_target(65, -99)
+    b_motor.run_target(100, -80,wait=False)
+    andar_reto_suave(34, 200)
+    wait(200)
+    drive_base.settings(turn_rate=200)
+    drive_base.curve(290,-47.5)
+    andar_reto_suave(36.5, 200,wa=False)
+    wait(1475)
+    b_motor.run_target(100, -59)
+    andar_reto(-8.5, 150)
+    turn(-43, 200)
+    andar_reto(19, 200)
+    turn(44, 100)
+    andar_reto_suave(-18, 250)
+    turn(-13, 600)
+    andar_reto_suave(-2, 200)
+
+    andar_reto_suave(14.5, 300)
+    turn(-50, 600)
+   
+    
+    andar_reto(48.5, 500)
+  
+    turn(-71, 350)
+    b_motor.run_target(300, -125)
     wait(170)
-    andar_reto(-2, 500)
+    andar_reto(-3, 500)
     b_motor.run_target(150, -59, wait=False)
     a_motor.run_angle(8000,360,wait=False)
-    andar_reto(9, 800)
+    andar_reto(9.5, 800)
 
     
-    andar_reto(-9, 500)
+    andar_reto(-10, 500)
     
     turn(70, 350)
     andar_reto(-35, 500)
-    print((timer.time()) / 1000) 
+
 
 
 
