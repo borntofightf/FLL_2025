@@ -23,7 +23,7 @@ def saida_1():
     wait(400)
     turn(-46.8, 100)
     print(hub.imu.heading())
-    wait(400)
+    wait(800)
     andar_reto_suave(9,300)
     andar_reto_suave(-3.5,150)
     b_motor.run_target(1000, -143)
@@ -61,21 +61,23 @@ def saida_2():
     wait(150)
     
     b_motor.run_target(100, -140,wait=False)
-    andar_reto(4.4, 100)
+    andar_reto(4.5, 100)
+    
     
 
-    turn(-91,110)
+    turn(-90.8,110)
+    print(hub.imu.heading())
     a_motor.run_angle(1000,500)
     andar_reto(4.8,50)
 
     a_motor.run_angle(900,100,wait=False)
     b_motor.run_target(100, -120,wait=False)
     wait(200)
-    andar_reto(4.3,50)
+    andar_reto(4.6,50)
     
 
     
-    a_motor.run_angle(-1000,225,wait=False)
+    a_motor.run_angle(-1000,220,wait=False)
     b_motor.run_target(150, -50,wait=False)
 
    
@@ -119,7 +121,7 @@ def saida_4():
     left_motor.run_angle(100,53)
     andar_reto_suave(2, 500)
     print(hub.imu.heading())
-    b_motor.run_target(500, -60)
+    b_motor.run_target(470, -60)
     
     left_motor.run_angle(-200,30)
     andar_reto_suave(-10, 1000)
@@ -135,7 +137,7 @@ def saida_5():
   
     drive_base.settings(turn_rate=200)
     drive_base.curve(255,-91)
-    andar_reto(37.2, 300)
+    andar_reto(37.5, 300)
     print(hub.imu.heading())
     turn(-89, 200)
     andar_reto(8.5, 200)
@@ -146,7 +148,7 @@ def saida_5():
     andar_reto_suave(-7, 500)
     
     turn(-90, 200)
-    andar_reto(11.5, 500)
+    andar_reto(11, 500)
     turn(-88.5, 200)
 
 
@@ -175,24 +177,28 @@ def saida_6():
 
     andar_reto_suave(40.4, 300)
     b_motor.run_target(700, -140)
+    print(hub.imu.heading())
     wait(300)
     b_motor.run_target(200, -50)
-    b_motor.run_target(800, -140)
+    b_motor.run_target(700, -140)
+    print(hub.imu.heading())
     wait(350)
     b_motor.run_target(200, -50)
     b_motor.run_target(800, -140)
     wait(300)
     b_motor.run_target(200, -30)
-    b_motor.run_target(900, -140)
+    b_motor.run_target(850, -140)
+    print(hub.imu.heading())
     b_motor.run_target(100, -10)
     
-    andar_reto(31, 240)
+    andar_reto(30.5, 240)
     
-    turn(-19.5, 400)
+    turn(-19, 700)
     andar_reto(7.5, 180)
     turn(-23, 900)
     andar_reto_suave(-7.5, 200)
-    turn(-54.5, 250)
+    turn(-55, 250)
+
 
 
     andar_reto_suave(-16,300)
@@ -211,39 +217,50 @@ def saida_6():
 
 def saida_7():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
-  
+    andar_reto(-0.5, 150)
     b_motor.run_target(100, -80,wait=False)
-    andar_reto_suave(34, 200)
-    wait(200)
-    drive_base.settings(turn_rate=200)
-    drive_base.curve(290,-47.5)
-    andar_reto_suave(36.5, 200,wa=False)
-    wait(1475)
+    
+    andar_reto_suave(33, 200)
+   
+    wait(400)
+    drive_base.use_gyro(True)
+    drive_base.settings(turn_rate=250)
+    drive_base.curve(290,-47)
+    wait(400)
+    print(hub.imu.heading())
+   
+    andar_reto_suave(33.5, 200,wa=False)
+    wait(1600)
     b_motor.run_target(100, -59)
-    andar_reto(-8.5, 150)
-    turn(-43, 200)
-    andar_reto(19, 200)
-    turn(44, 100)
-    andar_reto_suave(-18, 250)
-    turn(-13, 600)
+    andar_reto(-3, 200)
+    drive_base.use_gyro(True)
+    drive_base.settings(turn_rate=200)
+    drive_base.curve(-100,42)
+    print(hub.imu.heading())
+    andar_reto(22, 200)
+    turn(43.5, 100)
+    andar_reto_suave(-18, 200)
+    turn(-16, 600)
     andar_reto_suave(-2, 200)
 
-    andar_reto_suave(14.5, 300)
-    turn(-50, 600)
+    andar_reto_suave(13, 300)
+    turn(-46.5, 300)
    
     
-    andar_reto(48.5, 500)
+    andar_reto(48.8, 500)
   
-    turn(-71, 350)
-    b_motor.run_target(300, -125)
+    turn(-70.4, 350)
+    andar_reto(2, 500)
+    b_motor.run_target(300, -120)
     wait(170)
-    andar_reto(-3, 500)
-    b_motor.run_target(150, -59, wait=False)
+    b_motor.run_target(300, -110, wait=False)
+    andar_reto(-3.5, 500)
+    b_motor.run_target(150, -55, wait=False)
     a_motor.run_angle(8000,360,wait=False)
-    andar_reto(9.5, 800)
+    andar_reto(11, 800)
 
     
-    andar_reto(-10, 500)
+    andar_reto(-13, 500)
     
     turn(70, 350)
     andar_reto(-35, 500)
