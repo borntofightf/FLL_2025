@@ -215,36 +215,37 @@ def saida_6():
   
 
 
-def saida_7():
+def saida_7_0():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
-    andar_reto(-0.5, 150)
     b_motor.run_target(100, -80,wait=False)
+    andar_reto(-0.5, 150)
+    wait(100)
     
-    andar_reto_suave(33, 200)
+    andar_reto_suave(36, 200)
    
     wait(400)
     drive_base.use_gyro(True)
     drive_base.settings(turn_rate=250)
-    drive_base.curve(290,-47)
+    drive_base.curve(200,-45)
     wait(400)
     print(hub.imu.heading())
    
-    andar_reto_suave(33.5, 200,wa=False)
-    wait(1600)
+    andar_reto_suave(42, 200,wa=False)
+    wait(1800)
     b_motor.run_target(100, -59)
     andar_reto(-3, 200)
     drive_base.use_gyro(True)
     drive_base.settings(turn_rate=200)
-    drive_base.curve(-100,42)
+    drive_base.curve(-100,44.8)
     print(hub.imu.heading())
     andar_reto(22, 200)
     turn(43.5, 100)
-    andar_reto_suave(-18, 200)
+    andar_reto_suave(-18, 225)
     turn(-16, 600)
     andar_reto_suave(-2, 200)
 
     andar_reto_suave(13, 300)
-    turn(-46.5, 300)
+    turn(-47.25, 300)
    
     
     andar_reto(48.8, 500)
@@ -256,7 +257,59 @@ def saida_7():
     b_motor.run_target(300, -110, wait=False)
     andar_reto(-3.5, 500)
     b_motor.run_target(150, -55, wait=False)
-    a_motor.run_angle(8000,360,wait=False)
+    a_motor.run_angle(-8000,360,wait=False)
+    andar_reto(11, 800)
+
+    
+    andar_reto(-13, 500)
+    
+    turn(70, 350)
+    andar_reto(-35, 500)
+
+
+def saida_7_1():
+    """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
+    b_motor.run_target(100, -80,wait=False)
+    andar_reto(-0.5, 150)
+    wait(100)
+    
+    andar_reto_suave(37, 200)
+   
+    wait(400)
+    drive_base.use_gyro(True)
+    drive_base.settings(turn_rate=250)
+    drive_base.curve(200,-46.5)
+    wait(400)
+    print(hub.imu.heading())
+   
+    andar_reto_suave(37.5, 200,wa=False)
+    wait(1750)
+    b_motor.run_target(100, -59)
+    andar_reto(-3, 200)
+    drive_base.use_gyro(True)
+    drive_base.settings(turn_rate=200)
+    drive_base.curve(-100,42)
+    print(hub.imu.heading())
+    andar_reto(22, 200)
+    turn(43.5, 100)
+    andar_reto_suave(-18, 225)
+    turn(-16, 600)
+    andar_reto_suave(-2, 200)
+
+    andar_reto_suave(13, 300)
+    turn(-47.25, 300)
+   
+    
+    andar_reto(48.8, 500)
+  
+    turn(-70.4, 350)
+    andar_reto(2, 500)
+    b_motor.run_target(300, -120)
+    wait(170)
+    b_motor.run_target(300, -110, wait=False)
+    andar_reto(-3.5, 500)
+    b_motor.run_target(150, -55, wait=False)
+    a_motor.run_angle(-8000,360,wait=False)
     andar_reto(11, 800)
 
     
@@ -268,40 +321,6 @@ def saida_7():
 
 
 
-def blibioteca():
-    """lugar onde voce pode ver seus movimentos basicos e preder a usalos"""
-    # Os codigos são executados de cima pra baixo
-    #PONTENCIAS DE 1000 á 0
-                    
-    andar_reto_suave(10,200) # ANDAR RETO POR 20 CMS COM POTENCIA DE 200
-    andar_reto_suave(-10,200) # ANDAR PRA TRAS POR 20 CMS COM POTENCIA DE 200
-
-    turn(90,200)#girar pra direita até 90 graus
-    turn(-90,200)#girar pra direita até 90 graus
-    
-    a_motor.run_target(325, -105)#garra com engrenagem, mover ate certo grau 
-    a_motor.run_time(300, -105)# mover a garra por certo tempo
-
-    b_motor.run_target(325, -105)#garra da direita, mover ate certo grau 
-    b_motor.run_time(300, -105)# mover a garra por certo tempo
-
-def saida_IS():
-    """aqui voce vai testar seus codigos"""
-    #missões
-    andar_reto_suave(58,200)
-    turn(20,200)
-    b_motor.run_target(325, -135)
-    turn(10, 200)
-    b_motor.run_target(325, 0)
-    turn(-36,200)
-    andar_reto_suave(18,200)
-    right_motor.run_angle(250,300)
-    right_motor.run_angle(250,-300)
-    andar_reto_suave(-3,200)
-    turn(85,200)
-    andar_reto_suave(8,200)
-    a_motor.run_time(530, 800)
-    andar_reto_suave(30,200)
 
     
 
@@ -331,5 +350,5 @@ elif selected == "5":
 elif selected == "6":
     saida_6()
 elif selected == "7":
-    saida_7()
+    saida_7_1()
 
