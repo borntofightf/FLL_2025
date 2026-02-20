@@ -46,50 +46,44 @@ def parar():
     left_motor.hold()
     right_motor.hold()
 
-def exp_aproximada(x):
-    """Calcula uma exponencial aproximada para rampas."""
-    termo = 1
-    soma = 1
-    for i in range(1, 6):
-        termo *= x / i
-        soma += termo
-    return soma
+
 
 # ---------------- Funções principais ----------------
 
-def andar_reto(cms, pot):
+def andar_reto(cms, pot,wa=True):
     """Anda reto em linha com velocidade constante."""
     drive_base.stop()
     reset()
-    drive_base.settings(straight_acceleration=500,straight_speed=pot)
+    drive_base.settings(straight_acceleration=450,straight_speed=pot)
     drive_base.use_gyro(True)
-    drive_base.straight(cms*10)
+    drive_base.straight(cms*10,wait=wa)
 
 
-def andar_reto_suave(cm, pot):
+def andar_reto_suave(cm, pot,wa=True):
     """Anda reto com rampa de aceleração/desaceleração suave."""
     drive_base.settings(straight_speed=pot)
     drive_base.settings(straight_acceleration=400)
     parar()
     wait(100)
     drive_base.use_gyro(True)
-    drive_base.straight(cm*10)
+    drive_base.straight(cm*10,wait=wa)
     
 def turn(graus, potencia):    
     velocidade_curva = potencia
-    aceleracao_curva = 600
+    aceleracao_curva = 300
     parar()
     wait(150)
     drive_base.settings(turn_rate=velocidade_curva)
     drive_base.use_gyro(True)
     drive_base.turn(graus)
 
-def curva(graus, potencia):    
+
+
+def turn2(graus, potencia):    
     velocidade_curva = potencia
-    aceleracao_curva = 600
+    aceleracao_curva = 300
     parar()
-    wait(100)
+    wait(150)
     drive_base.settings(turn_rate=velocidade_curva)
     drive_base.use_gyro(True)
-    drive_base.arc(40, angle=graus)
-    
+    drive_base.turn(graus)
