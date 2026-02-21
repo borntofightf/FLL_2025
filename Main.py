@@ -1,4 +1,3 @@
-
 from pybricks.hubs import PrimeHub
 from pybricks.pupdevices import Motor, ColorSensor, UltrasonicSensor, ForceSensor
 from pybricks.parameters import Button, Color, Direction, Port, Side, Stop
@@ -80,11 +79,9 @@ def saida_2():
 
     
     a_motor.run_angle(-1000,220,wait=False)
-    b_motor.run_target(150, -47,wait=False)
-
-   
-    wait(950)
-    b_motor.run_target(500, -110)
+    b_motor.run_time(200, 440)
+    wait(600)
+    b_motor.run_target(500, -115)
     andar_reto_suave(-11, 200)
     a_motor.run_angle(-1000,1000,wait=False)
     drive_base.turn(84)
@@ -120,10 +117,11 @@ def saida_4():
     print(hub.imu.heading())
     b_motor.run_target(500, -130)
 
-    left_motor.run_angle(100,53)
+    drive_base.settings(turn_rate=80,turn_acceleration=100)
+    drive_base.curve(70,12)    
     andar_reto_suave(2, 500)
     print(hub.imu.heading())
-    b_motor.run_target(470, -60)
+    b_motor.run_target(420, -60)
     
     left_motor.run_angle(-200,30)
     andar_reto_suave(-10, 1000)
@@ -151,7 +149,7 @@ def saida_5():
     
     turn(-90.5, 200)
     andar_reto(10.65, 500)
-    b_motor.run_target(250, -95, wait=False)
+    b_motor.run_target(250, -40, wait=False)
     turn(-89, 200)
    
 
@@ -180,7 +178,7 @@ def saida_6():
     wait(150)
     andar_reto(40.4, 300)
     print(hub.imu.heading())
-    b_motor.run_target(700, -140)
+    b_motor.run_target(650, -140)
     print(hub.imu.heading())
     wait(300)
     b_motor.run_target(150, -50)
@@ -207,7 +205,7 @@ def saida_6():
 
 
 
-    andar_reto_suave(-16,250)
+    andar_reto_suave(-16,200)
     a_motor.run_angle(1000, 320)
     andar_reto_suave(-12,300)
     a_motor.run_angle(-400, 190,wait=False)
@@ -283,7 +281,7 @@ def saida_7_1():
     andar_reto(38, 200)
     drive_base.use_gyro(True)
     drive_base.settings(turn_rate=200,turn_acceleration=300)
-    drive_base.curve(200,-49.5)
+    drive_base.curve(200,-49.3)
     
     
     wait(400)
@@ -302,11 +300,11 @@ def saida_7_1():
     b_motor.run_target(300, -120)
     wait(170)
     b_motor.run_target(300, -112, wait=False)
-    andar_reto(-3, 500)
-    b_motor.run_target(150, -55, wait=False)
+    andar_reto(-3.8, 500)
+    b_motor.run_target(50, -55, wait=False)
     a_motor.run_angle(-8000,360)
     
-    andar_reto(9, 800)
+    andar_reto(9.5, 800)
 
     
     andar_reto(-11.5, 500)
@@ -314,7 +312,8 @@ def saida_7_1():
     turn(73,350)
     andar_reto(-53, 500)
     turn(41.5, 100)
-    andar_reto_suave(-20, 225)
+    andar_reto_suave(-22, 250)
+    wait(300)
     andar_reto(9, 1000)
     
 
