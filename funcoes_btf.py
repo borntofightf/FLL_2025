@@ -56,6 +56,7 @@ def andar_reto(cms, pot,wa=True):
     reset()
     drive_base.settings(straight_acceleration=450,straight_speed=pot)
     drive_base.use_gyro(True)
+    
     drive_base.straight(cms*10,wait=wa)
 
 
@@ -73,7 +74,7 @@ def turn(graus, potencia):
     aceleracao_curva = 300
     parar()
     wait(150)
-    drive_base.settings(turn_rate=velocidade_curva)
+    drive_base.settings(turn_rate=velocidade_curva,turn_acceleration=aceleracao_curva)
     drive_base.use_gyro(True)
     drive_base.turn(graus)
 
@@ -84,6 +85,6 @@ def turn2(graus, potencia):
     aceleracao_curva = 300
     parar()
     wait(150)
-    drive_base.settings(turn_rate=velocidade_curva)
+    drive_base.settings(turn_rate=velocidade_curva,turn_acceleration=aceleracao_curva)
     drive_base.use_gyro(True)
     drive_base.turn(graus)
