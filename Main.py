@@ -283,7 +283,7 @@ def saida_8_1():
     wait(300)
     print(hub.imu.heading())
     andar_reto(35, 250,wa=False)
-    wait(1550)
+    wait(1500)
     b_motor.run_target(100, -59)
     andar_reto(-6, 200)
     drive_base.use_gyro(True)
