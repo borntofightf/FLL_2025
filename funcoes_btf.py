@@ -88,3 +88,4 @@ def turn2(graus, potencia):
     drive_base.settings(turn_rate=velocidade_curva,turn_acceleration=aceleracao_curva)
     drive_base.use_gyro(True)
     drive_base.turn(graus)
+

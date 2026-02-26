@@ -69,14 +69,14 @@ def saida_2():
     a_motor.run_angle(1000,500)
     andar_reto(4.8,50)
 
-    a_motor.run_angle(900,100,wait=False)
+    a_motor.run_angle(900,110,wait=False)
     b_motor.run_target(100, -120,wait=False)
     wait(200)
     andar_reto(4.4,50)
     
 
     
-    a_motor.run_angle(-1000,220,wait=False)
+    a_motor.run_angle(-1000,210,wait=False)
     b_motor.run_time(200, 440)
     wait(600)
     andar_reto(-2,100)
@@ -106,20 +106,17 @@ def saida_3():
 def saida_4():  
     """Missões M10: Desequilíbrio da Balança, M11: Pesca de Artefatos"""
     b_motor.run_target(500, 0, wait=False)
-    andar_reto_suave(44.3, 700)
-
-    print(hub.imu.heading())
+    andar_reto_suave(44, 700)
     b_motor.run_target(500, -130)
 
-    left_motor.run_angle(130,60)
+    left_motor.run_angle(130,50)
     andar_reto_suave(2, 500)
     print(hub.imu.heading())
-    b_motor.run_target(450, -60)
+    b_motor.run_target(390, -60)
     
     left_motor.run_angle(-200,30)
     andar_reto_suave(-8, 1000)
-    
-    print((timer.time()) / 1000)
+
 
 
 def saida_5():
@@ -131,22 +128,16 @@ def saida_5():
     drive_base.settings(turn_rate=200)
     drive_base.curve(250,-90.8)
     andar_reto(38.4, 300)
-    print(hub.imu.heading())
-    turn(-88.8, 200)
+    turn(-90, 200)
     andar_reto(8.5, 200)
     right_motor.run_time(200,260)
     a_motor.run_time(1000,2400)
     right_motor.run_time(-200,255)
-    
     andar_reto_suave(-7, 500)
-    
     turn(-90.5, 200)
     andar_reto(10.65, 500)
     b_motor.run_target(250, -40, wait=False)
-    turn(-89, 200)
-   
-
-    
+    turn(-88.5, 200)
     andar_reto(6.5, 300)
     b_motor.run_target(1000, -120)
     b_motor.run_target(500, -80, wait=False)
@@ -214,58 +205,7 @@ def saida_7():
   
 
 
-def saida_8_0():
-    """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
-    b_motor.run_target(50, -80,wait=False)
-    andar_reto(-0.5, 150)
-    drive_base.reset()
-    drive_base.use_gyro(True)
-    wait(150)
-
-    andar_reto_suave(38, 175)
-    print(hub.imu.heading())
-    wait(250)
-    drive_base.settings(turn_rate=200,turn_acceleration=150)
-    drive_base.curve(200,-46.5)
-    
-    
-    
-    print(hub.imu.heading())
-    andar_reto(36.5, 250,wa=False)
-    wait(1550)
-    b_motor.run_target(100, -59)
-    andar_reto(-6, 200)
-    drive_base.use_gyro(True)
-    drive_base.settings(turn_rate=200,turn_acceleration=150)
-    drive_base.curve(-100,44.8)
-   
-    andar_reto(74.3, 400)
-    turn2(-69, 350)
-    andar_reto(5, 500)
-    b_motor.run_target(300, -120)
-    wait(170)
-    b_motor.run_target(300, -112, wait=False)
-    andar_reto(-3.8, 500)
-    b_motor.run_target(50, -55, wait=False)
-    a_motor.run_angle(-8000,360)
-    
-    andar_reto(9.5, 800)
-
-    
-    andar_reto(-11.5, 500)
-    
-    turn(73,350)
-    andar_reto(-52, 1000)
-    turn(41, 300)
-    drive_base.settings(straight_acceleration=400,straight_speed=200)
-    drive_base.use_gyro(False)
-    
-    drive_base.straight(-20*10)
-    wait(150)
-    andar_reto(9, 1000)
-
-
-def saida_8_1():
+def saida_8():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
     b_motor.run_target(50, -80,wait=False)
     andar_reto(-0.5, 150)
@@ -282,8 +222,8 @@ def saida_8_1():
     
     wait(300)
     print(hub.imu.heading())
-    andar_reto(35, 250,wa=False)
-    wait(1500)
+    andar_reto(35.5, 250,wa=False)
+    wait(1550)
     b_motor.run_target(100, -59)
     andar_reto(-6, 200)
     drive_base.use_gyro(True)
@@ -300,32 +240,21 @@ def saida_8_1():
     b_motor.run_target(50, -55, wait=False)
     a_motor.run_angle(-8000,360)
     
-    andar_reto(9.5, 800)
+    andar_reto(8, 800)
 
     
-    andar_reto(-11.5, 500)
+    andar_reto(-10, 500)
     
     turn(73,350)
     andar_reto(-52.4, 1000)
     turn(42,300)
     drive_base.settings(straight_acceleration=450,straight_speed=300)
     drive_base.use_gyro(False)
-    
-    drive_base.straight(-20*10)
-    wait(300)
+    drive_base.straight(-17*10)
+    wait(400)
+
     andar_reto(9, 1000)
 
-
-
-    
-
-
-
-    #missão 1, fazer o robo girar 90 e 45 graus
-    
-    #missão 2, fazer o robo andar pra frente e pra tras
-    #missão 3, mover a garra
-    #tentar efetuar uma saida
 
 
 # Choose a letter.
@@ -347,5 +276,5 @@ elif selected == "6":
 elif selected == "7":
     saida_6()
 elif selected == "8":
-    saida_8_1()
+    saida_8()
 
