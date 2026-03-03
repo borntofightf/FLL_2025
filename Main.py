@@ -140,7 +140,7 @@ def saida_5():
 
     andar_reto(10.9, 500)
     turn(-90, 200)
-    andar_reto(6, 300)
+    andar_reto(7, 300)
     andar_reto(-0.8, 500)
     b_motor.run_target(1000, -120)
     b_motor.run_target(500, -80, wait=False)
