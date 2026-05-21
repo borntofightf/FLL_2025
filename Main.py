@@ -70,7 +70,7 @@ def saida_2():
     a_motor.run_angle(900,110,wait=False)
     b_motor.run_target(100, -120,wait=False)
     wait(200)
-    andar_reto(4.4,50)
+    andar_reto(4.45,50)
     
     a_motor.run_angle(-1000,210,wait=False)
     b_motor.run_time(200, 440)
@@ -130,14 +130,14 @@ def saida_5():
     andar_reto(7.8, 150)
     right_motor.run_time(200,200)
     a_motor.run_time(1000,2300)
-    right_motor.run_time(-200,230)
+    right_motor.run_time(-200,250)
     andar_reto(-7, 400)
     turn(-90.5, 200)
 
     andar_reto_suave(10.5, 400)
     turn(-90, 200)
-    andar_reto(6, 300)
-    andar_reto(-0.8, 500)
+    andar_reto(7, 300)
+    andar_reto(-1, 500)
     b_motor.run_target(1000, -120)
     b_motor.run_target(500, -80, wait=False)
     andar_reto_suave(-8.5, 300)
@@ -176,33 +176,34 @@ def saida_7():
     """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
    
     b_motor.run_target(150, -10, wait=False)
-    a_motor.run_time(-1000, 250, wait=False)
+    a_motor.run_time(1000, 250, wait=False)
     andar_reto_suave(-0.5, 300)
     drive_base.reset()
     wait(150)
-    andar_reto(76.5, 600)
-    turn(-26, 400)
-    andar_reto_suave(-7.3, 200)
-    turn(-69, 250)
-
-    andar_reto_suave(-26,200)
-    a_motor.run_angle(1000, 320)
-    andar_reto_suave(-11.5,300)
-    a_motor.run_angle(-400, 190,wait=False)
-    andar_reto_suave(5,300)
-    wait(500)
-    b_motor.run_target(100, -5)
-    andar_reto_suave(-10,800)
-    a_motor.run_angle(-500, 100,wait=False)
-   
-    turn(99, 600)
-    andar_reto_suave(-3,800)
+    a_motor.run_time(-500, 500, wait=False)
+    andar_reto(65, 400)
+    a_motor.run_time(-500, 850)
+    andar_reto(9,250)
+    a_motor.run_time(1000, 900)
+    andar_reto_suave(-2, 200)
+    right_motor.run_angle(250,80)
+    andar_reto(1.5,500)
+    right_motor.run_angle(400,88)
+    andar_reto(-6,500)
+    turn(-63, 100)
+    andar_reto_suave(-26, 800)
+    drive_base.settings(turn_rate=150)
+    drive_base.curve(310,-100) 
+    andar_reto_suave(28, 800) 
+    
+    
+    
   
 
 
 def saida_8():
     """Missões M3: Exploradora de Minas, M13: Reconstrução da Estátua, M14: Fórum, M15: Marcação do Sítio Arqueológico"""
-    b_motor.run_target(50, -78,wait=False)
+    b_motor.run_target(50, -75,wait=False)
     andar_reto(-0.5, 150)
     drive_base.reset()
     drive_base.use_gyro(True)
@@ -212,7 +213,7 @@ def saida_8():
     print(hub.imu.heading())
     
     drive_base.settings(turn_rate=200,turn_acceleration=150)
-    drive_base.curve(200,-47)
+    drive_base.curve(200,-47.5)
     
     
     wait(300)
