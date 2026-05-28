@@ -80,12 +80,21 @@ def turn(graus, potencia):
 
 
 
-def turn2(graus, potencia):    
+def turn2(graus, potencia):
     velocidade_curva = potencia
     aceleracao_curva = 300
     parar()
     wait(150)
     drive_base.settings(turn_rate=velocidade_curva,turn_acceleration=aceleracao_curva)
-    drive_base.use_gyro(True)
-    drive_base.turn(graus)
+    if graus < 0:
+        while not hub.imu.heading() <= graus:
+            left_motor.dc(potencia)
+            right_motor.dc(-potencia)
+    else:
+        while not hub.imu.heading() >= graus:
+            left_motor.dc(-potencia)
+            right_motor.dc(potencia)
+    drive_base.stop()
+
+
 
