@@ -17,14 +17,13 @@ def saida_1():
     """Missões M1: Escavação Supercial, M2: Revelação do Mapa"""
     timer = StopWatch()
     timer.reset()      
-    
     andar_reto_suave(79,500)
     wait(400)
     turn(-46.8, 125)
-
+    andar_reto_suave(-3,300)
     print(hub.imu.heading())
     wait(800)
-    andar_reto_suave(9,340)
+    andar_reto_suave(12,340)
     andar_reto_suave(-3.5,150)
     b_motor.run_target(1000, -143)
     andar_reto_suave(4,700)
@@ -55,21 +54,19 @@ def saida_2():
     a_motor.run_angle(1000,1500,wait=False)
     b_motor.run_target(100, -40,wait=False)
     andar_reto_suave(-93, 800)
-    
     andar_reto_suave(-7, 100)
     wait(250)
     b_motor.run_target(100, -133,wait=False)
     andar_reto(4.35, 80)
-
     wait(200)
     turn(-90.5,125)
     print(hub.imu.heading())
     a_motor.run_angle(1000,500)
     andar_reto(4.8,50)
-
     a_motor.run_angle(900,110,wait=False)
     b_motor.run_target(100, -120,wait=False)
     wait(200)
+    turn2(90.2,100)
     andar_reto(4.45,50)
     
     a_motor.run_angle(-1000,210,wait=False)
@@ -117,12 +114,13 @@ def saida_4():
 
 def saida_5():
     """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
+    drive_base.reset()
     b_motor.run_target(100, -0, wait=False)
     andar_reto_suave(-0.5, 500)
-    drive_base.reset()
     wait(100)
     drive_base.settings(turn_rate=200)
-    drive_base.curve(250,-90.3)  
+    drive_base.curve(250,-90.3)
+    turn2(-90,100)
     print(hub.imu.heading())
     andar_reto(38.7, 300)
     print(hub.imu.heading())
@@ -134,7 +132,7 @@ def saida_5():
     andar_reto(-7, 400)
     turn2(90, 200)
     print(hub.imu.heading())
-    andar_reto(10.9, 400)
+    andar_reto(11, 400)
     turn(-89, 200)
     andar_reto(7, 300)
     andar_reto(-1, 500)
@@ -174,7 +172,6 @@ def saida_6():
     
 def saida_7():
     """Missões M5: Quem Viveu Aqui?, M6: Forja, M7: Levamento de Peso"""
-   
     b_motor.run_target(150, -10, wait=False)
     a_motor.run_time(1000, 250, wait=False)
     andar_reto_suave(-0.5, 300)
@@ -214,8 +211,8 @@ def saida_8():
     
     drive_base.settings(turn_rate=200,turn_acceleration=150)
     drive_base.curve(200,-47.5)
-    
-    
+    wait(100)
+    turn2(-47.5, 100)
     wait(300)
     print(hub.imu.heading())
     andar_reto(35.1, 250,wa=False)
@@ -227,7 +224,7 @@ def saida_8():
     drive_base.curve(-100,43.2)
    
     andar_reto(74.4, 400)
-    turn2(-70, 350)
+    turn(-70, 350)
     andar_reto(5, 500)
     b_motor.run_target(300, -120)
     wait(170)
@@ -275,4 +272,3 @@ elif selected == "7":
     saida_6()
 elif selected == "8":
     saida_8()
-
