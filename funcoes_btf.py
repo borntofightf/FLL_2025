@@ -87,16 +87,15 @@ def turn2(graus, potencia):
     wait(150)
     drive_base.settings(turn_rate=velocidade_curva,turn_acceleration=aceleracao_curva)
     if graus > hub.imu.heading():
-        while not hub.imu.heading() <= graus:
+        while hub.imu.heading() <= graus:
             left_motor.dc(potencia)
             right_motor.dc(-potencia)
     elif graus == hub.imu.heading():
         pass
     else:
-        while not hub.imu.heading() >= graus:
+        while hub.imu.heading() >= graus:
             left_motor.dc(-potencia)
             right_motor.dc(potencia)
     drive_base.stop()
-
 
 
