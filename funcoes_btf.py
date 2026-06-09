@@ -83,25 +83,19 @@ def turn(graus, potencia):
 def turn2(graus, potencia):
     velocidade_curva = potencia
     aceleracao_curva = 300
-    timer = StopWatch()
     parar()
     drive_base.settings(turn_rate=velocidade_curva,turn_acceleration=aceleracao_curva)
     wait(150)
-    timer.reset() 
     if graus > hub.imu.heading():
         while hub.imu.heading() <= graus:
-            if timer.time() >= 700 and abs(hub.imu.heading()) <= abs(graus)-0.5:
-                break
-            left_motor.dc(potencia)
-            right_motor.dc(-potencia)
+            left_motor.run(potencia)
+            right_motor.run(-potencia)
     elif graus == hub.imu.heading():
         pass
     else:
         while hub.imu.heading() >= graus:
-            if timer.time() >= 700 and abs(hub.imu.heading()) <= abs(graus)-0.5:
-                break
-            left_motor.dc(-potencia)
-            right_motor.dc(potencia)
+            left_motor.run(-potencia)
+            right_motor.run(potencia)
     drive_base.stop()
     timer.pause()
 
