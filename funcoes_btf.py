@@ -97,7 +97,6 @@ def turn2(graus, potencia):
             left_motor.run(-potencia)
             right_motor.run(potencia)
     drive_base.stop()
-    timer.pause()
 
 
 
