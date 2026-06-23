@@ -236,7 +236,7 @@ def saida_8():
     turn(73,300)
     print(hub.imu.heading())
     andar_reto(-52, 1000)
-    turn(41.5,300)
+    turn(41,300)
     drive_base.settings(straight_acceleration=450,straight_speed=330)
     drive_base.use_gyro(False)
     drive_base.straight(-18*10)

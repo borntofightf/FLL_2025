@@ -82,7 +82,7 @@ def turn(graus, potencia):
 
 def turn2(graus, potencia):
     velocidade_curva = potencia
-    aceleracao_curva = 300
+    aceleracao_curva = 200
     parar()
     drive_base.settings(turn_rate=velocidade_curva,turn_acceleration=aceleracao_curva)
     wait(150)
